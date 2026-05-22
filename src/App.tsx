@@ -3,6 +3,7 @@ function App() {
 		<div>
 			<span>
 				<h1>ldkjf</h1>
+				<h1>ldkjf</h1>
 			</span>
 		</div>
 	);
