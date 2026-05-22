@@ -1,0 +1,6 @@
+pre-commit:
+  parallel: true
+  commands:
+    fix: 
+      run: npm run biome:fix
+      exclude: "node_modules"
