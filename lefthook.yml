@@ -4,3 +4,9 @@ pre-commit:
     fix: 
       run: npm run biome:fix
       exclude: "node_modules"
+
+commit-msg:
+  parallel: true
+  commands: 
+   commitlint: 
+    run: npx commitlint --edit {1}
