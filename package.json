@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"preview": "vite preview",
-		"biome:check": "biome check ./src",
+		"biome:check": "biome check ./src", 
 		"biome:fix": "biome check ./src --write"
 	},
 	"dependencies": {
