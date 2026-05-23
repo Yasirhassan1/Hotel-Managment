@@ -10,11 +10,13 @@ const AppLayout = () => {
 		>
 			<aside
 				style={{
-					width: "300px",
-					backgroundColor: "green",
+					width: "200px",
+					backgroundColor: "#b2b2b2",
 					minHeight: "100vh",
 				}}
-			></aside>
+			>
+                sidebar
+            </aside>
 			<main>
 				<Outlet />
 			</main>
