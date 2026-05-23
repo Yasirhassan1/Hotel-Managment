@@ -15,8 +15,8 @@ const AppLayout = () => {
 					minHeight: "100vh",
 				}}
 			>
-                sidebar
-            </aside>
+				sidebar
+			</aside>
 			<main>
 				<Outlet />
 			</main>
