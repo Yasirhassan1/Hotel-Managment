@@ -2,10 +2,10 @@
 import { createRoot } from "react-dom/client";
 // import App from "./App.tsx";
 import "./index.css";
-import { RouterProvider } from "react-router";
-import {router} from "./routes/routes.tsx"
 import { Suspense } from "react";
+import { RouterProvider } from "react-router";
 import { Loader } from "./components/Loader.tsx";
+import { router } from "./routes/routes.tsx";
 
 const rootElement = document.getElementById("root");
 
@@ -16,7 +16,7 @@ if (!rootElement) {
 const root = createRoot(rootElement);
 
 root.render(
-	<Suspense fallback={<Loader/>}>
-	 <RouterProvider router={router} />,
-	 </Suspense>
+	<Suspense fallback={<Loader />}>
+		<RouterProvider router={router} />,
+	</Suspense>,
 );

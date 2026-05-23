@@ -1,11 +1,11 @@
-import { memo } from 'react';
+import { memo } from "react";
 
 const Dashboard = () => {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
-  );
+	return (
+		<div>
+			<h2>Dashboard</h2>
+		</div>
+	);
 };
 
 export default memo(Dashboard);

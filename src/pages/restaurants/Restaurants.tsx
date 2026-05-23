@@ -1,11 +1,11 @@
-import { memo } from 'react';
+import { memo } from "react";
 
 const Restaurants = () => {
-  return (
-    <div>
-      <h2>Restaurants</h2>
-    </div>
-  );
+	return (
+		<div>
+			<h2>Restaurants</h2>
+		</div>
+	);
 };
 
 export default memo(Restaurants);

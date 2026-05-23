@@ -1,11 +1,11 @@
-import { memo } from 'react';
+import { memo } from "react";
 
 const Settings = () => {
-  return (
-    <div>
-      <h2>Settings</h2>
-    </div>
-  );
+	return (
+		<div>
+			<h2>Settings</h2>
+		</div>
+	);
 };
 
 export default memo(Settings);
