@@ -4,6 +4,11 @@ import { Suspense } from "react";
 import { RouterProvider } from "react-router";
 import { Loader } from "./components/Loader.tsx";
 import { router } from "./routes/routes.tsx";
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/material/styles";
+import { themeBranding } from "./theme.ts";
+
+const theme = createTheme(themeBranding);
 
 const rootElement = document.getElementById("root");
 
@@ -14,7 +19,10 @@ if (!rootElement) {
 const root = createRoot(rootElement);
 
 root.render(
-	<Suspense fallback={<Loader />}>
-		<RouterProvider router={router} />,
-	</Suspense>,
+	<ThemeProvider theme={theme}>
+		<Suspense fallback={<Loader />}>
+			<RouterProvider router={router} />,
+		</Suspense>
+		,
+	</ThemeProvider>,
 );
