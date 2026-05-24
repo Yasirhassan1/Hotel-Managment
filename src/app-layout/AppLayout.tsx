@@ -1,4 +1,5 @@
 import { Outlet } from "react-router";
+
 const AppLayout = () => {
 	return (
 		<div
@@ -14,8 +15,8 @@ const AppLayout = () => {
 					minHeight: "100vh",
 				}}
 			>
-                sidebar
-            </aside>
+				sidebar
+			</aside>
 			<main>
 				<Outlet />
 			</main>
@@ -24,6 +25,3 @@ const AppLayout = () => {
 };
 
 export default AppLayout;
-
-
-

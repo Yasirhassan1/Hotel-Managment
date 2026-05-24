@@ -1,11 +1,11 @@
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/material/styles";
 import { Suspense } from "react";
 import { RouterProvider } from "react-router";
 import { Loader } from "./components/Loader.tsx";
 import { router } from "./routes/routes.tsx";
-import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material/styles";
 import { themeBranding } from "./theme.ts";
 
 const theme = createTheme(themeBranding);
