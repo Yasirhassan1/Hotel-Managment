@@ -1,13 +1,15 @@
+import { CircularProgress } from "@mui/material";
+import Box from "@mui/material/Box";
 export function Loader() {
 	return (
-		<div
-			style={{
+		<Box
+			sx={{
 				position: "fixed",
 				top: "50%",
 				left: "50%",
 			}}
 		>
-			Loading...
-		</div>
+			<CircularProgress color="primary" aria-label="Loading…" />
+		</Box>
 	);
 }

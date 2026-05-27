@@ -1,7 +1,8 @@
+import Box from "@mui/material/Box";
 export function NotFound() {
 	return (
-		<div>
+		<Box>
 			<p>Page Not Found</p>
-		</div>
+		</Box>
 	);
 }

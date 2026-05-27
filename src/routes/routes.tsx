@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { createBrowserRouter, redirect } from "react-router";
+import { createBrowserRouter } from "react-router";
 import AppLayout from "../app-layout/AppLayout";
 import { NotFound } from "../components/NotFount";
 import Dashboard from "../pages/dashboard/Dashboard";
@@ -7,17 +7,10 @@ import Dashboard from "../pages/dashboard/Dashboard";
 export const router = createBrowserRouter([
 	{
 		path: "/",
-		loader: () => {
-			return redirect("/dashboard");
-		},
-	},
-
-	{
-		path: "/",
 		Component: AppLayout,
 		children: [
 			{
-				path: "/dashboard",
+				path: "/",
 				Component: Dashboard,
 			},
 
