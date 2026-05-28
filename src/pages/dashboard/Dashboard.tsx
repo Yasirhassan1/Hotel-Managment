@@ -9,6 +9,7 @@ import { memo } from "react";
 import Button from "../../components/Buttons/Button";
 import Chip from "../../components/Chip/Chip";
 import IconButton from "../../components/icon-button/IconButton";
+import Logo from "../../components/logo/Logo";
 import SummaryCard from "../../components/summary cards/SummaryCard";
 import TextField from "../../components/TextFields/TextField";
 import Typography from "../../components/Typography/Typography";
@@ -165,6 +166,8 @@ const Dashboard = () => {
 							<GroupIcon></GroupIcon>
 						</IconButton>
 					</SummaryCard>
+
+					<Logo />
 				</Box>
 			</Box>
 		</Box>

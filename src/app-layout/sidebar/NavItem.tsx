@@ -2,12 +2,12 @@ import type { SvgIconProps } from "@mui/material";
 import type { ComponentType } from "react";
 import type { NavLinkProps } from "react-router";
 import { NavLink } from "react-router";
-import Box from "../components/Box/Box";
-import Typography from "../components/Typography/Typography";
+import Button from "../../components/Buttons/Button";
+import Typography from "../../components/Typography/Typography";
 import NavIcon from "./NavIcon";
 
 interface NavItemProps extends NavLinkProps {
-	Icon?: ComponentType<SvgIconProps>;
+	Icon: ComponentType<SvgIconProps>;
 	to: string;
 	children: React.ReactNode;
 }
@@ -28,32 +28,37 @@ export default function NavItem({
 			viewTransition
 		>
 			{({ isActive }) => (
-				<Box
+				<Button
+					disableRipple
 					sx={{
 						display: "flex",
-						gap: "12px",
+						gap: "6px",
+						justifyContent: "left",
 						alignItems: "center",
-						padding: "2px",
-						borderRadius: 6,
+						padding: "1px",
+						textTransform: "none",
+						width: "100%",
+						borderRadius: 5,
 						bgcolor: isActive ? "#222F41" : "none",
 						borderLeft: isActive
-							? "4px solid #006ad8"
-							: "4px solid transparent",
+							? "3px solid #006ad8"
+							: "3px solid transparent",
 						"&:hover": {
 							bgcolor: !isActive ? "#b5b5b522" : "",
 						},
 					}}
 				>
-					{Icon && <NavIcon Icon={Icon} active={isActive} />}
+					<NavIcon Icon={Icon} active={isActive} />
 					<Typography
-						variant="caption"
+						variant="body1"
 						sx={{
 							color: isActive ? "white" : "#A6A3A2",
+							fontWeight: isActive ? 600 : 500,
 						}}
 					>
 						{children}
 					</Typography>
-				</Box>
+				</Button>
 			)}
 		</NavLink>
 	);
