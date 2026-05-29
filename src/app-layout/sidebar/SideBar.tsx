@@ -53,6 +53,7 @@ export function SideBar({ sidebarOpen }: SideBarProps) {
 						flexDirection: "row",
 						marginLeft: "6px",
 						// bgcolor: "orange",
+            alignItems: "center",
 						padding: "9px",
 
 						gap: "14px",
@@ -116,7 +117,12 @@ export function SideBar({ sidebarOpen }: SideBarProps) {
 							);
 						} else {
 							return (
-								<NavItem key={cur.id} Icon={cur.icon} to={cur.href ?? ""}>
+								<NavItem
+									key={cur.id}
+									title={cur.title}
+									Icon={cur.icon}
+									to={cur.href ?? ""}
+								>
 									{cur.title}
 								</NavItem>
 							);
@@ -146,7 +152,12 @@ export function SideBar({ sidebarOpen }: SideBarProps) {
 						SYSTEM
 					</Typography>
 					{systemMenu.map((cur) => (
-						<NavItem key={cur.id} Icon={cur.icon} to={cur.href ?? ""}>
+						<NavItem
+							key={cur.id}
+							title={cur.title}
+							Icon={cur.icon}
+							to={cur.href ?? ""}
+						>
 							{cur.title}
 						</NavItem>
 					))}

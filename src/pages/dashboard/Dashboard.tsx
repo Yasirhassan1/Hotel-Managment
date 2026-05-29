@@ -5,7 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import GroupIcon from "@mui/icons-material/Group";
 import Box from "@mui/material/Box";
 import { memo } from "react";
-
+import ListItems from "../../app-layout/header/ListItems";
 import Button from "../../components/Buttons/Button";
 import Chip from "../../components/Chip/Chip";
 import IconButton from "../../components/icon-button/IconButton";
@@ -169,6 +169,7 @@ const Dashboard = () => {
 
 					<Logo />
 				</Box>
+				<ListItems />
 			</Box>
 		</Box>
 	);

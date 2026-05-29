@@ -5,6 +5,8 @@ export default function Logo() {
 		<Avatar
 			sx={{
 				bgcolor: "primary.main",
+                width: 40,
+                height: 40
 			}}
 		>
 			<TravelExploreIcon />

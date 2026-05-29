@@ -4,11 +4,12 @@ import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import { Outlet } from "react-router";
 
-import { Header } from "./Header";
+import { Header } from "./header/Header";
 import { SideBar } from "./sidebar/SideBar";
 
 const AppLayout = () => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const [dropDownMenuOpen, setDropDownMenuOpen] = useState(false);
 
 	return (
 		<>
@@ -58,9 +59,17 @@ const AppLayout = () => {
 						overflow: "hidden",
 					}}
 				>
-					<Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+					<Header
+						sidebarOpen={sidebarOpen}
+						setSidebarOpen={setSidebarOpen}
+						dropDownMenuOpen={dropDownMenuOpen}
+						setDropDownMenuOpen={setDropDownMenuOpen}
+					/>
 
-					<Box sx={{ flex: 1, overflowY: "auto", px: "1.5rem", pb: "1.5rem" }}>
+					<Box
+						onClick={() => setDropDownMenuOpen(false)}
+						sx={{ flex: 1, overflowY: "auto", px: "1.5rem", pb: "1.5rem" }}
+					>
 						<Outlet />
 					</Box>
 				</Grid>
