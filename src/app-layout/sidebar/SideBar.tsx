@@ -53,7 +53,7 @@ export function SideBar({ sidebarOpen }: SideBarProps) {
 						flexDirection: "row",
 						marginLeft: "6px",
 						// bgcolor: "orange",
-            alignItems: "center",
+						alignItems: "center",
 						padding: "9px",
 
 						gap: "14px",

@@ -1,4 +1,4 @@
-import type{ SvgIconProps } from "@mui/material";
+import type { SvgIconProps } from "@mui/material";
 import type { ComponentType } from "react";
 import type { NavLinkProps } from "react-router";
 import { NavLink } from "react-router";
@@ -20,7 +20,6 @@ export default function NavItem({
 	children,
 	...props
 }: NavItemProps) {
-	
 	return (
 		<NavLink
 			style={{
@@ -49,7 +48,7 @@ export default function NavItem({
 							bgcolor: isActive ? "#222F41" : "none",
 							borderLeft: "3px",
 							borderLeftStyle: "solid",
-							borderLeftColor: isActive? "primary.main": "transparent",
+							borderLeftColor: isActive ? "primary.main" : "transparent",
 							"&:hover": {
 								bgcolor: !isActive ? "#b5b5b522" : "",
 							},

@@ -18,7 +18,7 @@ const CartBadge = styled(Badge)`
   }
 `;
 
-const StyledTooltip = styled(MUITooltip)(() => ({}));
+// const StyledTooltip = styled(MUITooltip)(() => ({}));
 export default function Tooltip({
 	variant,
 	Icon = ShoppingCart,

@@ -99,14 +99,13 @@ export function Header({
 					}}
 				>
 					<TextField
-						
 						id={`input`}
 						sx={{
 							bgcolor: "#F4F6F9",
 							borderRadius: "40px",
-							'& .MuiInputBase-root': {
-								height: '40px',
-							}
+							"& .MuiInputBase-root": {
+								height: "40px",
+							},
 						}}
 						slotProps={{
 							input: {

@@ -16,7 +16,6 @@ const StyledTextField = styled(MUITextField)(() => ({
 		borderRadius: "10px",
 		height: "50px",
 	},
-
 }));
 
 const StyledTextFieldFullRounded = styled(MUITextField)(() => ({
@@ -25,7 +24,6 @@ const StyledTextFieldFullRounded = styled(MUITextField)(() => ({
 		height: "50px",
 		border: "none",
 	},
-		
 }));
 
 export default function TextField({
