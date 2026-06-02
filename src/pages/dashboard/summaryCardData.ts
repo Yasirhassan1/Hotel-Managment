@@ -11,7 +11,7 @@ export const summaryCardData = [
 		count: 12,
 		tag: {
 			text: "+2 this month",
-			tagColor: "#2ea397",
+			tagColor: "#177269",
 		},
 		Icon: {
 			iconRef: GroupIcon,
@@ -25,7 +25,7 @@ export const summaryCardData = [
 		count: 8,
 		tag: {
 			text: "+1 this month",
-			tagColor: "#2ea397",
+			tagColor: "#177269",
 		},
 		Icon: {
 			iconRef: DirectionsCarIcon,
@@ -44,7 +44,7 @@ export const summaryCardData = [
 		Icon: {
 			iconRef: ApartmentIcon,
 			iconBgColor: "#E0F2F1",
-			iconColor: "#00897B",
+			iconColor: "#177269",
 		},
 	},
 
@@ -54,7 +54,7 @@ export const summaryCardData = [
 		count: 6,
 		tag: {
 			text: "+1 this month",
-			tagColor: "#2ea397",
+			tagColor: "#177269",
 		},
 		Icon: {
 			iconRef: LocalDiningIcon,
@@ -69,7 +69,7 @@ export const summaryCardData = [
 		count: 247,
 		tag: {
 			text: "+18 this month",
-			tagColor: "#2ea397",
+			tagColor: "#177269",
 		},
 		Icon: {
 			iconRef: BookmarksIcon,
@@ -83,12 +83,12 @@ export const summaryCardData = [
 		count: 95000,
 		tag: {
 			text: "+14.5 vs last month this month",
-			tagColor: "#2ea397",
+			tagColor: "#177269",
 		},
 		Icon: {
 			iconRef: AttachMoneyIcon,
 			iconBgColor: "#E8F5E9",
-			iconColor: "#2ea397",
+			iconColor: "#177269",
 		},
 	},
 ];

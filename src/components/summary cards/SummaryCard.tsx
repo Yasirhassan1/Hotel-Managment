@@ -34,7 +34,6 @@ export default function SummaryCard({
 				bgcolor: theme.palette.background.paper,
 				borderRadius: 8,
 				flex: 1,
-
 				minWidth: "300px",
 			})}
 		>
@@ -46,7 +45,14 @@ export default function SummaryCard({
 					gap: "4px",
 				}}
 			>
-				<Typography variant="body1">{title}</Typography>
+				<Typography
+					variant="body1"
+					sx={(theme) => ({
+						color: theme.palette.color.textSecondary,
+					})}
+				>
+					{title}
+				</Typography>
 				<Typography
 					variant="h1"
 					sx={{

@@ -1,7 +1,7 @@
 export const lightColors = {
 	primary: "#006ad8",
 	secondary: "#3e3432",
-	sidebar: "#211613",
+	sidebar: "#2A2220",
 	background: "#f4f6f9",
 	activeNavlinkBgColor: "#222F41",
 	navlinkHover: "#b5b5b522",
