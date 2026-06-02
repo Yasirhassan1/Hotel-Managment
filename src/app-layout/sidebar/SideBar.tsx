@@ -18,21 +18,23 @@ const systemMenu = [
 	},
 ];
 export function SideBar({ sidebarOpen }: SideBarProps) {
+	console.log("sidebar render")
 	return (
 		<Grid
-			sx={{
-				bgcolor: "#2A2220",
+			sx={({ palette }) => ({
+				bgcolor: palette.color.sidebar,
 				flexShrink: 0,
 				height: "100vh",
 
 				position: { xs: "absolute", above1000: "relative" },
 				zIndex: { xs: 11, above1000: "auto" },
 				width: sidebarWidth,
+				transition: "all 0.3s ease",
 				transform: {
 					xs: sidebarOpen ? "translateX(0)" : `translateX(-100%)`,
 					above1000: "translateX(0)",
 				},
-			}}
+			})}
 		>
 			<Box
 				component={"aside"}
@@ -79,11 +81,12 @@ export function SideBar({ sidebarOpen }: SideBarProps) {
 						flexDirection: "column",
 						gap: "8px",
 						// bgcolor: "green",
+						height: "400px",
+						overflow: "auto",
 						flex: "3",
 						paddingTop: "1rem",
 						paddingBottom: "1rem",
 						borderTop: 1,
-
 						borderBottom: 1,
 						borderColor: "#453c3c",
 					}}

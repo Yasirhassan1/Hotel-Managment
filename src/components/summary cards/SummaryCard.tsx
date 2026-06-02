@@ -1,33 +1,42 @@
-import type { ReactNode } from "react";
+import type { SvgIconProps } from "@mui/material";
 import Box from "../Box/Box";
+import Icon from "../icon/Icon";
 import Typography from "../Typography/Typography";
 
 interface SummaryCardProps {
 	title: string;
 	count: number;
-	tag: string;
-	children: ReactNode;
+	tag: {
+		text: string;
+		tagColor: string;
+	};
+	icon: {
+		iconRef: React.ComponentType<SvgIconProps>;
+		iconBgColor: string;
+		iconColor: string;
+	};
 }
 export default function SummaryCard({
 	title,
 	count,
 	tag,
-	children,
+	icon,
 }: SummaryCardProps) {
 	return (
 		<Box
 			variant="shadow"
 			component={"div"}
-			sx={{
+			sx={(theme) => ({
 				display: "flex",
 				justifyContent: "space-between",
-				padding: "14px",
+				padding: 3,
 				gap: "10px",
-				bgcolor: "white",
-				borderRadius: 4,
+				bgcolor: theme.palette.background.paper,
+				borderRadius: 8,
 				flex: 1,
-				minWidth: "250px",
-			}}
+
+				minWidth: "300px",
+			})}
 		>
 			<Box
 				component={"div"}
@@ -46,11 +55,26 @@ export default function SummaryCard({
 				>
 					{count}
 				</Typography>
-				<Typography variant="caption" color="primary">
-					{tag}
+				<Typography
+					variant="caption"
+					sx={{
+						color: tag.tagColor,
+					}}
+				>
+					{tag.text}
 				</Typography>
 			</Box>
-			{children}
+			<Icon
+				Icon={icon.iconRef}
+				sx={{
+					bgcolor: icon.iconBgColor,
+					color: icon.iconColor,
+					width: "50px",
+					height: "50px",
+					padding: "12px",
+					borderRadius: "50px",
+				}}
+			></Icon>
 		</Box>
 	);
 }

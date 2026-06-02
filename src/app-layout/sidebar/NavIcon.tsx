@@ -20,9 +20,9 @@ export default function NavIcon({ Icon, active = false }: IconProps) {
 			}}
 		>
 			<Icon
-				sx={{
-					color: active ? "primary.main" : "#A6A3A2",
-				}}
+				sx={(theme) => ({
+					color: active ? "primary.main" : theme.palette.color.icon,
+				})}
 			/>
 		</Box>
 	);

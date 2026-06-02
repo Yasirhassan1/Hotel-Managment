@@ -4,9 +4,8 @@ import {
 	styled,
 } from "@mui/material";
 
-interface TypographyProps extends MUITypographyProps {
-	fontSize?: string;
-}
+type TypoType = "h1" | "h2" | "h3" | "body1" | "body2" | "caption";
+interface TypographyProps extends MUITypographyProps {}
 
 const StyledMUITypographyh1 = styled(MUITypography)(({ theme }) => ({
 	fontSize: "1.5rem",
@@ -56,58 +55,22 @@ const StyledMUITypographyCaption = styled(MUITypography)(({ theme }) => ({
 	color: theme.typography.caption.color,
 }));
 
+const TypographyType = {
+	h1: StyledMUITypographyh1,
+	h2: StyledMUITypographyh2,
+	h3: StyledMUITypographyh3,
+	body1: StyledMUITypographybody1,
+	body2: StyledMUITypographybody2,
+	caption: StyledMUITypographyCaption,
+	undefined: MUITypography,
+};
+
 export default function Typography({
 	variant,
-	fontSize,
 	children,
 	...props
 }: TypographyProps) {
-	if (variant === "h1") {
-		return (
-			<StyledMUITypographyh1 variant="h1" {...props}>
-				{children}
-			</StyledMUITypographyh1>
-		);
-	} else if (variant === "h2") {
-		return (
-			<StyledMUITypographyh2 variant="h2" {...props}>
-				{children}
-			</StyledMUITypographyh2>
-		);
-	} else if (variant === "h3") {
-		return (
-			<StyledMUITypographyh3 variant="h3" {...props}>
-				{children}
-			</StyledMUITypographyh3>
-		);
-	} else if (variant === "body1") {
-		return (
-			<StyledMUITypographybody1 variant="body1" {...props}>
-				{children}
-			</StyledMUITypographybody1>
-		);
-	} else if (variant === "body2") {
-		return (
-			<StyledMUITypographybody2 variant="body2" {...props}>
-				{children}
-			</StyledMUITypographybody2>
-		);
-	} else if (variant === "caption") {
-		return (
-			<StyledMUITypographyCaption variant="caption" {...props}>
-				{children}
-			</StyledMUITypographyCaption>
-		);
-	} else {
-		return (
-			<MUITypography
-				{...props}
-				sx={{
-					fontSize: fontSize,
-				}}
-			>
-				{children}
-			</MUITypography>
-		);
-	}
+	const Typography = TypographyType[variant as TypoType];
+
+	return <Typography {...props}>{children}</Typography>;
 }

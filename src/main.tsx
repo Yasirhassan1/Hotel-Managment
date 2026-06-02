@@ -1,13 +1,11 @@
-import { ThemeProvider } from "@emotion/react";
-import { createTheme } from "@mui/material/styles";
 import { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router";
+import AppWithTheme from "./AppWithTheme.tsx";
 import { Loader } from "./components/Loader.tsx";
-import { router } from "./routes/routes.tsx";
-import { themeBranding } from "./theme/theme-branding.ts";
 
-const theme = createTheme(themeBranding);
+import { ThemeModeProvider } from "./context/ThemeContext.ts";
+import { router } from "./routes/routes.tsx";
 
 const rootElement = document.getElementById("root");
 
@@ -18,10 +16,11 @@ if (!rootElement) {
 const root = createRoot(rootElement);
 
 root.render(
-	<ThemeProvider theme={theme}>
-		<Suspense fallback={<Loader />}>
-			<RouterProvider router={router} />,
-		</Suspense>
-		,
-	</ThemeProvider>,
+	<ThemeModeProvider>
+		<AppWithTheme>
+			<Suspense fallback={<Loader />}>
+				<RouterProvider router={router} />,
+			</Suspense>
+		</AppWithTheme>
+	</ThemeModeProvider>,
 );

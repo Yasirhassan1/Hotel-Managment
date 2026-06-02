@@ -3,18 +3,22 @@ import {
 	type BoxProps as MUIBoxProps,
 	styled,
 } from "@mui/material";
+import type { ReactNode } from "react";
 
 interface BoxProps extends MUIBoxProps {
 	variant?: "shadow";
+	children?: ReactNode;
 }
+type boxType = "shadow" | "undefined";
 
-const StyledShadowBox = styled(MUIBox)(() => ({
-	boxShadow: "2px 4px 10px #cdcdcd9a",
+const StyledShadowBox = styled(MUIBox)(({ theme }) => ({
+	boxShadow: `2px 4px 10px ${theme.palette.color.boxShadow}`,
 }));
-
-export default function Box({ variant, ...props }: BoxProps) {
-	if (variant) {
-		return <StyledShadowBox {...props}></StyledShadowBox>;
-	}
-	return <MUIBox {...props}></MUIBox>;
+const BoxType = {
+	shadow: StyledShadowBox,
+	undefined: MUIBox,
+};
+export default function Box({ variant, children, ...props }: BoxProps) {
+	const Box = BoxType[variant as boxType];
+	return <Box {...props}>{children}</Box>;
 }

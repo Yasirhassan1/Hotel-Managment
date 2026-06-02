@@ -1,5 +1,6 @@
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import Avatar from "../avatars/Avatar";
+import Icon from "../icon/Icon";
 export default function Logo() {
 	return (
 		<Avatar
@@ -9,7 +10,12 @@ export default function Logo() {
 				height: 40,
 			}}
 		>
-			<TravelExploreIcon />
+			<Icon
+				Icon={TravelExploreIcon}
+				sx={{
+					color: "white",
+				}}
+			/>
 		</Avatar>
 	);
 }

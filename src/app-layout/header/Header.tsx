@@ -1,13 +1,16 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
+import { MenuItem } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useLocation } from "react-router";
 import Avatar from "../../components/avatars/Avatar";
 import Box from "../../components/Box/Box";
+import Select from "../../components/select/Select";
 import TextField from "../../components/TextFields/TextField";
 import Typography from "../../components/Typography/Typography";
 import TooltipWithBadge from "../../components/tooltip/ToolTipBadge";
+import { useTheme } from "../../hooks/useTheme";
 import { stringAvatar } from "../../utils/avatar-short-name";
 import ListItems from "./ListItems";
 
@@ -34,7 +37,10 @@ export function Header({
 	setDropDownMenuOpen,
 }: HeaderProps) {
 	const { pathname } = useLocation();
+	const { theme, toggleTheme } = useTheme();
 	const title = routeTitles[pathname] ?? "App";
+	console.log("header render")
+	
 	return (
 		<Box
 			variant="shadow"
@@ -43,11 +49,11 @@ export function Header({
 				minHeight: 70,
 				bgcolor: "background.paper",
 				flexShrink: 0,
-				px: "23px",
-
+				px: "1.4rem",
 				display: "flex",
 				alignItems: "center",
 				flexWrap: "wrap",
+				zIndex: "10",
 				justifyContent: "space-between",
 			}}
 		>
@@ -57,6 +63,7 @@ export function Header({
 					justifyContent: "space-between",
 					// bgcolor: "green",
 					flexWrap: "wrap",
+
 					gap: "10px",
 					alignItems: "center",
 					width: "100%",
@@ -121,7 +128,7 @@ export function Header({
 					/>
 					<TooltipWithBadge
 						title="Notifications"
-						Icon={NotificationsIcon}
+						icon={NotificationsIcon}
 						color="error"
 						count={3}
 					></TooltipWithBadge>
@@ -171,6 +178,15 @@ export function Header({
 					>
 						<ListItems />
 					</Box>
+					<Select
+						id="hehr"
+						value={theme}
+						label="Theme"
+						onChange={() => toggleTheme()}
+					>
+						<MenuItem value="light">Light</MenuItem>
+						<MenuItem value="dark">Dark</MenuItem>
+					</Select>
 				</Box>
 				<MenuIcon
 					onClick={() => setSidebarOpen(!sidebarOpen)}

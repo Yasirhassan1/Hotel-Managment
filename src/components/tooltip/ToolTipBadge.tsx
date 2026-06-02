@@ -2,10 +2,11 @@ import { ShoppingCart } from "@mui/icons-material";
 import type { SvgIconProps } from "@mui/material";
 import { Tooltip as MUITooltip, styled } from "@mui/material";
 import Badge, { badgeClasses } from "@mui/material/Badge";
+import Icon from "../icon/Icon";
 import IconButton from "../icon-button/IconButton";
 
 interface ToolTipProps {
-	Icon?: React.ComponentType<SvgIconProps>;
+	icon?: React.ComponentType<SvgIconProps>;
 	title: string;
 	count?: number;
 	color: string;
@@ -19,7 +20,7 @@ const CartBadge = styled(Badge)`
 `;
 
 export default function TooltipWithBadge({
-	Icon = ShoppingCart,
+	icon = ShoppingCart,
 	title,
 	color,
 	count = 0,
@@ -28,7 +29,7 @@ export default function TooltipWithBadge({
 	return (
 		<MUITooltip title={title} {...props}>
 			<IconButton>
-				<Icon fontSize="small" />
+				<Icon Icon={icon} />
 				<CartBadge
 					badgeContent={count}
 					color={color as "primary" | "secondary" | "error" | "warning"}

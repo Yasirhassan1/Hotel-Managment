@@ -21,9 +21,8 @@ const AppLayout = () => {
 						overflow: "hidden",
 						height: "100%",
 					},
-					"*": {
-						transition: "all 0.3s ease",
-					},
+
+
 				}}
 			/>
 
@@ -68,12 +67,31 @@ const AppLayout = () => {
 
 					<Box
 						onClick={() => setDropDownMenuOpen(false)}
-						sx={{ flex: 1, overflowY: "auto", px: "1.5rem", pb: "1.5rem" }}
+						sx={(theme)=>({
+							flex: 1, overflowY: "auto", px: "1.4rem", pb: "1.5rem",
+							
+							"&::-webkit-scrollbar": {
+						    width: "5px",
+
+                             },
+					"&::-webkit-scrollbar-track": {
+						background: theme.palette.color.scrollbarBgcolor,
+					borderRadius: "10px",
+  
+},
+
+					
+					"&::-webkit-scrollbar-thumb": {
+						background: theme.palette.color.scrollbarColor,
+					borderRadius: "10px",
+}
+
+						 })}
 					>
-						<Outlet />
-					</Box>
-				</Grid>
+					<Outlet />
+				</Box>
 			</Grid>
+		</Grid >
 		</>
 	);
 };

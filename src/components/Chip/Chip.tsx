@@ -4,8 +4,15 @@ import {
 	styled,
 } from "@mui/material";
 
+type chipTypes =
+	| "active"
+	| "inactive"
+	| "available"
+	| "unavailable"
+	| "pending";
+
 interface ChipProps extends Omit<MUIChipProps, "variant"> {
-	variant?: "active" | "inactive" | "available" | "unavailable" | "pending";
+	variant?: chipTypes;
 }
 
 const StyledChipActive = styled(MUIChip)(() => ({
@@ -53,18 +60,16 @@ const StyledChipPending = styled(MUIChip)(() => ({
 	height: 24,
 }));
 
+const chipType = {
+	active: StyledChipActive,
+	inactive: StyledChipInactive,
+	available: StyledChipAvailable,
+	unavailable: StyledChipUnAvailable,
+	pending: StyledChipPending,
+	undefined: MUIChip,
+};
+
 export default function Chip({ variant, ...props }: ChipProps) {
-	if (variant === "active") {
-		return <StyledChipActive {...props}></StyledChipActive>;
-	} else if (variant === "inactive") {
-		return <StyledChipInactive {...props}></StyledChipInactive>;
-	} else if (variant === "available") {
-		return <StyledChipAvailable {...props}></StyledChipAvailable>;
-	} else if (variant === "unavailable") {
-		return <StyledChipUnAvailable {...props}></StyledChipUnAvailable>;
-	} else if (variant === "pending") {
-		return <StyledChipPending {...props}></StyledChipPending>;
-	} else {
-		return <MUIChip {...props} />;
-	}
+	const Chip = chipType[variant as chipTypes];
+	return <Chip {...props}></Chip>;
 }

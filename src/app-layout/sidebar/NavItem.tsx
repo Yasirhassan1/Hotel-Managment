@@ -31,28 +31,26 @@ export default function NavItem({
 			viewTransition
 		>
 			{({ isActive }) => {
-				localStorage.setItem("activeItem", title);
-
 				return (
 					<Button
 						disableRipple
-						sx={{
+						sx={({ palette }) => ({
 							display: "flex",
 							gap: "6px",
 							justifyContent: "left",
 							alignItems: "center",
-							padding: "1px",
+							padding: "7px",
 							textTransform: "none",
 							width: "100%",
-							borderRadius: 5,
-							bgcolor: isActive ? "#222F41" : "none",
+							borderRadius: 6,
+							bgcolor: isActive ? palette.color.activeNavlinkBgColor : "none",
 							borderLeft: "3px",
 							borderLeftStyle: "solid",
 							borderLeftColor: isActive ? "primary.main" : "transparent",
 							"&:hover": {
-								bgcolor: !isActive ? "#b5b5b522" : "",
+								bgcolor: !isActive ? palette.color.navlinkHover : "",
 							},
-						}}
+						})}
 					>
 						<NavIcon Icon={Icon} active={isActive} />
 						<Typography
