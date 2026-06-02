@@ -17,8 +17,8 @@ export const lightColors = {
 	body2: "#666666",
 	caption: "#999999",
 	icon: "#A6A3A2",
-    scrollbarColor: "#a09e9e",
-    scrollbarBgcolor: "#cecece",
+	scrollbarColor: "#a09e9e",
+	scrollbarBgcolor: "#cecece",
 };
 
 export const darkColors = {
@@ -41,6 +41,6 @@ export const darkColors = {
 	body1: "#cccccc",
 	body2: "#aaaaaa",
 	caption: "#888888",
-    scrollbarColor: "#424242",
-    scrollbarBgcolor: "#323232",
+	scrollbarColor: "#424242",
+	scrollbarBgcolor: "#323232",
 };

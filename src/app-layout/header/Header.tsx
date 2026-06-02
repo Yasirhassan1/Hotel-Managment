@@ -39,8 +39,8 @@ export function Header({
 	const { pathname } = useLocation();
 	const { theme, toggleTheme } = useTheme();
 	const title = routeTitles[pathname] ?? "App";
-	console.log("header render")
-	
+	console.log("header render");
+
 	return (
 		<Box
 			variant="shadow"

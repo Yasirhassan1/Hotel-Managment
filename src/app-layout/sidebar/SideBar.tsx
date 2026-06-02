@@ -18,7 +18,7 @@ const systemMenu = [
 	},
 ];
 export function SideBar({ sidebarOpen }: SideBarProps) {
-	console.log("sidebar render")
+	console.log("sidebar render");
 	return (
 		<Grid
 			sx={({ palette }) => ({

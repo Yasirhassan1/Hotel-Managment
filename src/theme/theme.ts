@@ -23,8 +23,8 @@ declare module "@mui/material/styles" {
 			body1: string;
 			body2: string;
 			caption: string;
-			scrollbarColor: string,
-            scrollbarBgcolor: string,
+			scrollbarColor: string;
+			scrollbarBgcolor: string;
 		};
 	}
 	interface PaletteOptions {

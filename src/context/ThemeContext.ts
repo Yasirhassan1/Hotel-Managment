@@ -20,7 +20,7 @@ export function ThemeModeProvider({ children }: ThemeProviderProps) {
 
 	const toggleTheme = () => {
 		setTheme((prev) => (prev === "light" ? "dark" : "light"));
-        localStorage.setItem("mode", theme === "light"? "dark": "light")
+		localStorage.setItem("mode", theme === "light" ? "dark" : "light");
 	};
 
 	return createElement(

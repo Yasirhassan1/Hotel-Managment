@@ -14,7 +14,6 @@ import TextField from "../../components/TextFields/TextField";
 import Typography from "../../components/Typography/Typography";
 import { summaryCardData } from "./summaryCardData";
 
-
 const Dashboard = () => {
 	return (
 		<Box
