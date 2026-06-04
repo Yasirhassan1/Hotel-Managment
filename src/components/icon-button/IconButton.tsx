@@ -4,6 +4,7 @@ import {
 	styled,
 } from "@mui/material";
 import type { ReactNode } from "react";
+import {memo} from "react"
 
 interface IconButtonProps extends Omit<MUIIconButtonProps, "color"> {
 	color?: string;
@@ -29,13 +30,13 @@ const StyledIconButtonStatic = styled(MUIIconButton)<{ bgColor?: string }>(
 		},
 	}),
 );
-export default function IconButton({
+const IconButton = ({
 	variant,
 	color,
 	bgColor,
 	children,
 	...props
-}: IconButtonProps) {
+}: IconButtonProps)=> {
 	if (variant === "app") {
 		return <StyledIconButton {...props}>{children}</StyledIconButton>;
 	} else if (variant === "static") {
@@ -57,3 +58,5 @@ export default function IconButton({
 		</MUIIconButton>
 	);
 }
+
+export default memo(IconButton)

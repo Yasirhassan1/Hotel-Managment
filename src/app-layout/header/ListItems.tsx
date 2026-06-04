@@ -1,4 +1,4 @@
-import { Settings } from "@mui/icons-material";
+import Settings  from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import {

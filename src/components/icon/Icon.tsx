@@ -1,12 +1,13 @@
 import type { SvgIconProps, SxProps } from "@mui/material";
 import type { Theme } from "@mui/material/styles";
+import  { memo } from "react";
 
 interface IconProps extends SvgIconProps {
 	Icon: React.ComponentType<SvgIconProps>;
 	sx?: SxProps<Theme>;
 }
 
-export default function Icon({ Icon: Component, sx, ...props }: IconProps) {
+const Icon = ({ Icon: Component, sx, ...props }: IconProps)=> {
 	return (
 		<Component
 			{...props}
@@ -19,3 +20,4 @@ export default function Icon({ Icon: Component, sx, ...props }: IconProps) {
 		/>
 	);
 }
+export default memo(Icon)

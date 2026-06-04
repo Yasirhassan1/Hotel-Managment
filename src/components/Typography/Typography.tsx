@@ -3,6 +3,7 @@ import {
 	type TypographyProps as MUITypographyProps,
 	styled,
 } from "@mui/material";
+import { memo } from "react";
 
 type TypoType = "h1" | "h2" | "h3" | "body1" | "body2" | "caption";
 interface TypographyProps extends MUITypographyProps {}
@@ -65,12 +66,13 @@ const TypographyType = {
 	undefined: MUITypography,
 };
 
-export default function Typography({
+const  Typography = ({
 	variant,
 	children,
 	...props
-}: TypographyProps) {
+}: TypographyProps)=> {
 	const Typography = TypographyType[variant as TypoType];
 
 	return <Typography {...props}>{children}</Typography>;
 }
+export default memo(Typography)

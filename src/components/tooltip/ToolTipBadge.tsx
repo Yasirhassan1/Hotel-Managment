@@ -1,4 +1,4 @@
-import { ShoppingCart } from "@mui/icons-material";
+import ShoppingCart  from "@mui/icons-material/ShoppingCart";
 import type { SvgIconProps } from "@mui/material";
 import { Tooltip as MUITooltip, styled } from "@mui/material";
 import Badge, { badgeClasses } from "@mui/material/Badge";

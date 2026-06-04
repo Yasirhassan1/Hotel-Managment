@@ -3,6 +3,7 @@ import {
 	type ChipProps as MUIChipProps,
 	styled,
 } from "@mui/material";
+import  { memo } from "react";
 
 type chipTypes =
 	| "active"
@@ -69,7 +70,10 @@ const chipType = {
 	undefined: MUIChip,
 };
 
-export default function Chip({ variant, ...props }: ChipProps) {
+
+
+const Chip = ({ variant, ...props }: ChipProps)=> {
 	const Chip = chipType[variant as chipTypes];
 	return <Chip {...props}></Chip>;
 }
+export default memo(Chip)

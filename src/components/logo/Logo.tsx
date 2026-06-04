@@ -1,7 +1,9 @@
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+import {memo} from "react"
 import Avatar from "../avatars/Avatar";
 import Icon from "../icon/Icon";
-export default function Logo() {
+
+const Logo = ()=> {
 	return (
 		<Avatar
 			sx={{
@@ -19,3 +21,4 @@ export default function Logo() {
 		</Avatar>
 	);
 }
+export default memo(Logo)

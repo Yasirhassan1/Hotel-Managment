@@ -1,7 +1,7 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SearchIcon from "@mui/icons-material/Search";
-import { MenuItem } from "@mui/material";
+import MenuItem  from "@mui/material/MenuItem";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useLocation } from "react-router";
 import Avatar from "../../components/avatars/Avatar";
