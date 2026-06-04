@@ -1,9 +1,9 @@
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
-import {memo} from "react"
+import { memo } from "react";
 import Avatar from "../avatars/Avatar";
 import Icon from "../icon/Icon";
 
-const Logo = ()=> {
+const Logo = () => {
 	return (
 		<Avatar
 			sx={{
@@ -20,5 +20,5 @@ const Logo = ()=> {
 			/>
 		</Avatar>
 	);
-}
-export default memo(Logo)
+};
+export default memo(Logo);

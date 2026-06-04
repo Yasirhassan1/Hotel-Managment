@@ -66,13 +66,9 @@ const TypographyType = {
 	undefined: MUITypography,
 };
 
-const  Typography = ({
-	variant,
-	children,
-	...props
-}: TypographyProps)=> {
+const Typography = ({ variant, children, ...props }: TypographyProps) => {
 	const Typography = TypographyType[variant as TypoType];
 
 	return <Typography {...props}>{children}</Typography>;
-}
-export default memo(Typography)
+};
+export default memo(Typography);

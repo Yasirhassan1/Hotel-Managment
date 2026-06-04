@@ -73,7 +73,7 @@ export default function RecientActivity() {
 				flexDirection: "column",
 				gap: "10px",
 				flex: 2,
-                minWidth: "350px",
+				minWidth: "350px",
 				bgcolor: theme.palette.background.paper,
 				padding: 3,
 				borderRadius: 8,

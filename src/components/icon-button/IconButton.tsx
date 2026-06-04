@@ -4,7 +4,7 @@ import {
 	styled,
 } from "@mui/material";
 import type { ReactNode } from "react";
-import {memo} from "react"
+import { memo } from "react";
 
 interface IconButtonProps extends Omit<MUIIconButtonProps, "color"> {
 	color?: string;
@@ -36,7 +36,7 @@ const IconButton = ({
 	bgColor,
 	children,
 	...props
-}: IconButtonProps)=> {
+}: IconButtonProps) => {
 	if (variant === "app") {
 		return <StyledIconButton {...props}>{children}</StyledIconButton>;
 	} else if (variant === "static") {
@@ -57,6 +57,6 @@ const IconButton = ({
 			{children}
 		</MUIIconButton>
 	);
-}
+};
 
-export default memo(IconButton)
+export default memo(IconButton);

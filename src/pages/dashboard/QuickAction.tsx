@@ -2,9 +2,9 @@ import ApartmentIcon from "@mui/icons-material/Apartment";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAdded";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
-import  Group  from "@mui/icons-material/Group";
+import Group from "@mui/icons-material/Group";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
-import Divider  from "@mui/material/Divider";
+import Divider from "@mui/material/Divider";
 import Box from "../../components/Box/Box";
 import Button from "../../components/Buttons/Button";
 import Typography from "../../components/Typography/Typography";
@@ -55,7 +55,7 @@ export default function QuickAction() {
 			sx={(theme) => ({
 				display: "flex",
 				flex: 1,
-                minWidth: "300px",
+				minWidth: "300px",
 				flexDirection: "column",
 				gap: "10px",
 				bgcolor: theme.palette.background.paper,

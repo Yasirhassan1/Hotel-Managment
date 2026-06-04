@@ -1,4 +1,4 @@
-import Delete  from "@mui/icons-material/Delete";
+import Delete from "@mui/icons-material/Delete";
 import { memo } from "react";
 import ListItems from "../../app-layout/header/ListItems";
 import Box from "../../components/Box/Box";
@@ -135,7 +135,7 @@ const Dashboard = () => {
 							flex: 1,
 							display: "flex",
 							minWidth: "350px",
-							flexDirection: "column", 
+							flexDirection: "column",
 							bgcolor: theme.palette.background.paper,
 							padding: "20px",
 							height: "fit-content",

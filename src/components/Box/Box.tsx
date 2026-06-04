@@ -4,8 +4,7 @@ import {
 	styled,
 } from "@mui/material";
 import type { ReactNode } from "react";
-import {memo} from "react"
-
+import { memo } from "react";
 
 interface BoxProps extends MUIBoxProps {
 	variant?: "shadow";
@@ -21,10 +20,9 @@ const BoxType = {
 	undefined: MUIBox,
 };
 
-
 const Box = ({ variant, children, ...props }: BoxProps) => {
-	console.log("Box")
+	console.log("Box");
 	const Box = BoxType[variant as boxType];
 	return <Box {...props}>{children}</Box>;
-}
-export default memo(Box)
+};
+export default memo(Box);
