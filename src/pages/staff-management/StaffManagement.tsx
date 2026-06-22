@@ -16,7 +16,6 @@ import ActionButton from "./ActionButton";
 import { mockData } from "./config";
 import { StaffHeader } from "./StaffHeader";
 
-
 type StatusType = "all-status" | "active" | "inactive" | "pending";
 
 const statusMenuItems = ["All Status", "Active", "Inactive"];
@@ -348,19 +347,15 @@ const StaffManagement = () => {
 			),
 
 			renderCell: (params) => (
-				
-
 				<ActionButton
-				{...params}
+					{...params}
 					rowId={params.id}
 					rowData={params.row}
 					roleMenuItems={roleMenuItems}
 					statusMenuItems={statusMenuItems}
 					onEdit={submitEditForm}
 					onDelete={deleteStaff}
-					
 				/>
-			 
 			),
 		},
 	];

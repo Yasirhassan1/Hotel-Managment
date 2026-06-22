@@ -75,12 +75,9 @@ const ActionButton = ({
 			mode: formName,
 		});
 	}
-		
-	
 
 	return (
 		<>
-        
 			<Box sx={{ display: "flex", gap: 1 }}>
 				<GridActionsCellItem
 					icon={
@@ -127,8 +124,7 @@ const ActionButton = ({
 					onClick={() => handleClick(rowId, "deleteForm")}
 					label="Delete"
 				/>
-			
-            </Box>
+			</Box>
 
 			<Dialog
 				open={dialogMode.mode === "viewForm"}

@@ -17,7 +17,7 @@ const systemMenu = [
 		icon: SettingsIcon,
 	},
 ];
-export function SideBar({ sidebarOpen }: {sidebarOpen: boolean}) {
+export function SideBar({ sidebarOpen }: { sidebarOpen: boolean }) {
 	console.log("sidebar render");
 	return (
 		<Grid
