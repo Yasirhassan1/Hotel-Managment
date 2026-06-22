@@ -10,12 +10,12 @@ import {
 	ListItemText,
 } from "@mui/material";
 import { NavLink } from "react-router";
-import Icon from "../../components/icon/Icon";
 export default function ListItems() {
 	return (
 		<List
 			sx={{
 				bgcolor: "background.paper",
+				boxShadow: "6px 6px 10px #0000003c",
 				borderRadius: 5,
 			}}
 		>
@@ -48,7 +48,7 @@ export default function ListItems() {
 						to={"/profile"}
 					>
 						<ListItemIcon>
-							<Icon Icon={PersonIcon} />
+							<PersonIcon />
 						</ListItemIcon>
 						<ListItemText primary="My Profile" />
 					</NavLink>
@@ -66,7 +66,8 @@ export default function ListItems() {
 						to={"/settings"}
 					>
 						<ListItemIcon>
-							<Icon Icon={Settings} />
+							<Settings />
+							{/* <Icon Icon={Settings} /> */}
 						</ListItemIcon>
 						<ListItemText primary="Setting" />
 					</NavLink>
@@ -86,12 +87,8 @@ export default function ListItems() {
 					>
 						<ListItemIcon>
 							{/* <LogoutIcon color="error" /> */}
-							<Icon
-								Icon={LogoutIcon}
-								sx={{
-									color: "error.main",
-								}}
-							/>
+
+							<LogoutIcon sx={{ color: "error.main" }} />
 						</ListItemIcon>
 						<ListItemText primary="Logout" />
 					</NavLink>

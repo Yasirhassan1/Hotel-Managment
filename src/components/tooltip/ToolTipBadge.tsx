@@ -2,7 +2,6 @@ import ShoppingCart from "@mui/icons-material/ShoppingCart";
 import type { SvgIconProps } from "@mui/material";
 import { Tooltip as MUITooltip, styled } from "@mui/material";
 import Badge, { badgeClasses } from "@mui/material/Badge";
-import Icon from "../icon/Icon";
 import IconButton from "../icon-button/IconButton";
 
 interface ToolTipProps {
@@ -26,10 +25,11 @@ export default function TooltipWithBadge({
 	count = 0,
 	...props
 }: ToolTipProps) {
+	const Icon = icon;
 	return (
 		<MUITooltip title={title} {...props}>
 			<IconButton>
-				<Icon Icon={icon} />
+				<Icon />
 				<CartBadge
 					badgeContent={count}
 					color={color as "primary" | "secondary" | "error" | "warning"}

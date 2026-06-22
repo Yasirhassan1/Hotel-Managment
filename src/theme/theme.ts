@@ -25,6 +25,7 @@ declare module "@mui/material/styles" {
 			caption: string;
 			scrollbarColor: string;
 			scrollbarBgcolor: string;
+			tableHead: string;
 		};
 	}
 	interface PaletteOptions {

@@ -1,8 +1,8 @@
-import Avatar from "../../components/avatars/Avatar";
-import Box from "../../components/Box/Box";
+import Avatar from "@mui/material/Avatar";
 import Button from "../../components/Buttons/Button";
 import Chip from "../../components/Chip/Chip";
 import Typography from "../../components/Typography/Typography";
+import Box from "../../styled/styled";
 import { stringAvatar } from "../../utils/avatar-short-name";
 
 type chipTypes =

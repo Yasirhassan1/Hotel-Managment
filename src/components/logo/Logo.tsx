@@ -1,7 +1,7 @@
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+import Avatar from "@mui/material/Avatar";
+import Icon from "@mui/material/Icon";
 import { memo } from "react";
-import Avatar from "../avatars/Avatar";
-import Icon from "../icon/Icon";
 
 const Logo = () => {
 	return (
@@ -13,11 +13,12 @@ const Logo = () => {
 			}}
 		>
 			<Icon
-				Icon={TravelExploreIcon}
 				sx={{
 					color: "white",
 				}}
-			/>
+			>
+				<TravelExploreIcon />
+			</Icon>
 		</Avatar>
 	);
 };

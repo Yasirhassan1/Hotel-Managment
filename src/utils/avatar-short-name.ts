@@ -1,4 +1,4 @@
-function stringToColor(string: string) {
+export function stringToColor(string: string) {
 	let hash = 0;
 	let i = 0;
 
@@ -19,9 +19,19 @@ function stringToColor(string: string) {
 }
 
 export function stringAvatar(name: string) {
+	if (!name.includes(" ")) {
+		return {
+			sx: {
+				bgcolor: stringToColor(name),
+				fontSize: 13,
+			},
+			children: `${name[0].toUpperCase()}`,
+		};
+	}
 	return {
 		sx: {
 			bgcolor: stringToColor(name),
+			fontSize: 13,
 		},
 		children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
 	};

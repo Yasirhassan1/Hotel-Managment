@@ -1,16 +1,23 @@
+import type { BarChartProps as MUIBarChartProps } from "@mui/x-charts";
 import { BarChart as MUIBarChart } from "@mui/x-charts/BarChart";
+
+interface BarChartProps extends MUIBarChartProps {
+	labelXAxis: Array<number | string>;
+	data: Array<number | string>;
+	height?: number;
+}
 
 const chartSetting = {
 	yAxis: [{ label: "Booking" }],
 	height: 250,
 	margin: { left: 0 },
 };
-interface BarChartProp {
-	labelXAxis: Array<number | string>;
-	data: Array<number | string>;
-	height?: number;
-}
-export default function BarChart({ labelXAxis, data, height }: BarChartProp) {
+
+export default function BarChart({
+	labelXAxis,
+	data,
+	...props
+}: BarChartProps) {
 	const dataset = labelXAxis.map((x, index) => ({
 		month: x,
 		bookingOverview: data[index],
@@ -18,9 +25,9 @@ export default function BarChart({ labelXAxis, data, height }: BarChartProp) {
 
 	return (
 		<MUIBarChart
+			{...props}
 			dataset={dataset}
 			xAxis={[{ scaleType: "band", dataKey: "month" }]}
-			series={[{ dataKey: "bookingOverview", label: "Booking" }]}
 			layout="vertical"
 			grid={{ vertical: true }}
 			{...chartSetting}

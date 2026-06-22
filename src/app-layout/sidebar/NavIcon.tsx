@@ -1,6 +1,6 @@
 import type { SvgIconProps } from "@mui/material";
 import type { ComponentType } from "react";
-import Box from "../../components/Box/Box";
+import Box from "../../styled/styled";
 
 interface IconProps {
 	Icon: ComponentType<SvgIconProps>;

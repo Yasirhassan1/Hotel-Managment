@@ -1,14 +1,9 @@
-import Delete from "@mui/icons-material/Delete";
 import { memo } from "react";
-import ListItems from "../../app-layout/header/ListItems";
-import Box from "../../components/Box/Box";
-import Chip from "../../components/Chip/Chip";
-import BarChart from "../../components/charts/BarChar";
-import LineChart from "../../components/charts/LineChart";
-import IconButton from "../../components/icon-button/IconButton";
+import BarChart from "../../components/Charts/BarChar";
+import LineChart from "../../components/Charts/LineChart";
 import SummaryCard from "../../components/summary cards/SummaryCard";
-import TextField from "../../components/TextFields/TextField";
 import Typography from "../../components/Typography/Typography";
+import Box from "../../styled/styled";
 import QuickAction from "./QuickAction";
 import RecientActivity from "./RecientActivity";
 import { summaryCardData } from "./summaryCardData";
@@ -154,6 +149,8 @@ const Dashboard = () => {
 						</Box>
 
 						<BarChart
+							series={[{ dataKey: "bookingOverview", label: "Booking" }]}
+							borderRadius={6}
 							labelXAxis={[
 								"Jan",
 								"Feb",
@@ -185,7 +182,7 @@ const Dashboard = () => {
 				<QuickAction />
 			</Box>
 
-			<Box
+			{/* <Box
 				sx={{
 					display: "flex",
 					flexDirection: "row",
@@ -250,7 +247,7 @@ const Dashboard = () => {
 				<Typography variant="h3" color="primary">
 					hello{" "}
 				</Typography>
-			</Box>
+			</Box> */}
 		</Box>
 	);
 };

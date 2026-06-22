@@ -1,4 +1,4 @@
-import Box from "./Box/Box";
+import Box from "../styled/styled";
 export function NotFound() {
 	return (
 		<Box>

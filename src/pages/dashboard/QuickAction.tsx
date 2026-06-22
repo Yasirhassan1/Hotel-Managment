@@ -5,9 +5,9 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import Group from "@mui/icons-material/Group";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import Divider from "@mui/material/Divider";
-import Box from "../../components/Box/Box";
 import Button from "../../components/Buttons/Button";
 import Typography from "../../components/Typography/Typography";
+import Box from "../../styled/styled";
 
 const quickActions = [
 	{

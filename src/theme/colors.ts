@@ -19,10 +19,11 @@ export const lightColors = {
 	icon: "#A6A3A2",
 	scrollbarColor: "#a09e9e",
 	scrollbarBgcolor: "#cecece",
+	tableHead: "#ffffff",
 };
 
 export const darkColors = {
-	primary: "#3388ff",
+	primary: "#006ad8",
 	secondary: "#cbbcb9",
 	sidebar: "#1e1e1e",
 	background: "#121212",
@@ -30,7 +31,7 @@ export const darkColors = {
 	activeNavlinkBgColor: "#2a3b52",
 	navlinkHover: "#b5b5b522",
 	boxShadow: "#1515159a",
-	icon: "#8799da",
+	icon: "#006ad8",
 	textPrimary: "#ffffffdf",
 	textSecondary: "#aaaaaa",
 	textDisable: "#ffffff61",
@@ -43,4 +44,5 @@ export const darkColors = {
 	caption: "#888888",
 	scrollbarColor: "#424242",
 	scrollbarBgcolor: "#323232",
+	tableHead: "#232323",
 };

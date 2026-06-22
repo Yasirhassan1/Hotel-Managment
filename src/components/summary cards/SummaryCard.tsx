@@ -1,6 +1,5 @@
 import type { SvgIconProps } from "@mui/material";
-import Box from "../Box/Box";
-import Icon from "../icon/Icon";
+import Box from "../../styled/styled";
 import Typography from "../Typography/Typography";
 
 interface SummaryCardProps {
@@ -22,6 +21,7 @@ export default function SummaryCard({
 	tag,
 	icon,
 }: SummaryCardProps) {
+	const IconComponent = icon.iconRef;
 	return (
 		<Box
 			variant="shadow"
@@ -70,8 +70,8 @@ export default function SummaryCard({
 					{tag.text}
 				</Typography>
 			</Box>
-			<Icon
-				Icon={icon.iconRef}
+
+			<IconComponent
 				sx={{
 					bgcolor: icon.iconBgColor,
 					color: icon.iconColor,
@@ -80,7 +80,7 @@ export default function SummaryCard({
 					padding: "12px",
 					borderRadius: "50px",
 				}}
-			></Icon>
+			></IconComponent>
 		</Box>
 	);
 }

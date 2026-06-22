@@ -1,8 +1,8 @@
 import { GlobalStyles } from "@mui/material";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 import { Outlet } from "react-router";
+import Box from "../styled/styled";
 
 import { Header } from "./header/Header";
 import { SideBar } from "./sidebar/SideBar";

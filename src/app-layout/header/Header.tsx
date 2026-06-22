@@ -1,16 +1,15 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import SearchIcon from "@mui/icons-material/Search";
-import InputAdornment from "@mui/material/InputAdornment";
+import Avatar from "@mui/material/Avatar";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 import { useLocation } from "react-router";
-import Avatar from "../../components/avatars/Avatar";
-import Box from "../../components/Box/Box";
-import Select from "../../components/select/Select";
-import TextField from "../../components/TextFields/TextField";
 import Typography from "../../components/Typography/Typography";
 import TooltipWithBadge from "../../components/tooltip/ToolTipBadge";
 import { useTheme } from "../../hooks/useTheme";
+import Box from "../../styled/styled";
 import { stringAvatar } from "../../utils/avatar-short-name";
 import ListItems from "./ListItems";
 
@@ -105,27 +104,6 @@ export function Header({
 						alignItems: "center",
 					}}
 				>
-					<TextField
-						id={`input`}
-						sx={{
-							bgcolor: "#F4F6F9",
-							borderRadius: "40px",
-							"& .MuiInputBase-root": {
-								height: "40px",
-							},
-						}}
-						slotProps={{
-							input: {
-								startAdornment: (
-									<InputAdornment position="start">
-										<SearchIcon />
-									</InputAdornment>
-								),
-							},
-						}}
-						variant="full-rounded"
-						placeholder="Search"
-					/>
 					<TooltipWithBadge
 						title="Notifications"
 						icon={NotificationsIcon}
@@ -178,15 +156,18 @@ export function Header({
 					>
 						<ListItems />
 					</Box>
-					<Select
-						id="hehr"
-						value={theme}
-						label="Theme"
-						onChange={() => toggleTheme()}
-					>
-						<MenuItem value="light">Light</MenuItem>
-						<MenuItem value="dark">Dark</MenuItem>
-					</Select>
+					<FormControl>
+						<InputLabel>Theme</InputLabel>
+						<Select
+							id="hehr"
+							value={theme}
+							label="Theme"
+							onChange={() => toggleTheme()}
+						>
+							<MenuItem value="light">Light</MenuItem>
+							<MenuItem value="dark">Dark</MenuItem>
+						</Select>
+					</FormControl>
 				</Box>
 				<MenuIcon
 					onClick={() => setSidebarOpen(!sidebarOpen)}

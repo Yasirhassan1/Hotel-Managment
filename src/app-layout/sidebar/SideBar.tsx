@@ -1,8 +1,8 @@
 import SettingsIcon from "@mui/icons-material/Settings";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Logo from "../../components/logo/Logo";
 import Typography from "../../components/Typography/Typography";
+import Box from "../../styled/styled";
 import NavItem from "./NavItem";
 import { data } from "./sidebardata";
 
@@ -17,7 +17,7 @@ const systemMenu = [
 		icon: SettingsIcon,
 	},
 ];
-export function SideBar({ sidebarOpen }: SideBarProps) {
+export function SideBar({ sidebarOpen }: {sidebarOpen: boolean}) {
 	console.log("sidebar render");
 	return (
 		<Grid
