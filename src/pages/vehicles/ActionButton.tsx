@@ -7,39 +7,42 @@ import {
 	DialogActions,
 	DialogContent,
 	DialogContentText,
+	// Modal,
+	// Slide,
 	Tooltip,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
+// import type { TransitionProps } from "@mui/material/transitions";
 import type { GridRowId } from "@mui/x-data-grid";
 import { GridActionsCellItem } from "@mui/x-data-grid";
 import { useState } from "react";
 import Button from "../../components/Buttons/Button";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
+import type { VehicleTableType } from "../../types/types";
 import DeleteForm from "./DeleteForm";
 import EditForm from "./EditForm";
 import ViewForm from "./ViewForm";
 
+// const Transition = React.forwardRef(function Transition(
+// 	props: TransitionProps & {
+// 		children: React.ReactElement<any, any>;
+// 	},
+// 	ref: React.Ref<unknown>,
+// ) {
+// 	return <Slide direction="up" ref={ref} {...props} />;
+// });
 type Mode = "editForm" | "deleteForm" | "viewForm" | null;
 
 interface DialogModeProp {
 	rowId: GridRowId | null;
 	mode: Mode;
 }
-interface RowDataType {
-	id: number;
-	staffMember: string;
-	email: string;
-	phone: string;
-	role: string;
-	status: string;
-	joinedDate: string;
-}
 
 interface ActionsButtonProps {
 	rowId: GridRowId;
-	rowData: RowDataType;
-	roleMenuItems: string[];
+	rowData: VehicleTableType;
+	vehicleTypeMenuItems: string[];
 	statusMenuItems: string[];
 	onEdit: (formData: FormData, id: number) => void;
 	onDelete: (id: number) => void;
@@ -47,7 +50,7 @@ interface ActionsButtonProps {
 const ActionButton = ({
 	rowId,
 	rowData,
-	roleMenuItems,
+	vehicleTypeMenuItems,
 	statusMenuItems,
 	onEdit,
 	onDelete,
@@ -135,8 +138,8 @@ const ActionButton = ({
 							borderRadius: 3,
 							position: "relative",
 							display: "flex",
-							maxWidth: "500px",
-							minWidth: "300px",
+							// maxWidth: "800px",
+							minWidth: "400px",
 							height: "fit-content",
 							flexDirection: "column",
 							gap: "1rem",
@@ -150,7 +153,7 @@ const ActionButton = ({
 								gap: "1rem",
 							}}
 						>
-							<Typography variant="h3">Staff Details</Typography>
+							<Typography variant="h3">Vehicle Details</Typography>
 							<IconButton
 								onClick={() =>
 									setDialogMode({
@@ -238,7 +241,7 @@ const ActionButton = ({
 								<EditForm
 									rowId={rowId as number}
 									rowData={rowData}
-									roleMenuItems={roleMenuItems}
+									vehicleTypeMenuItems={vehicleTypeMenuItems}
 									statusMenuItems={statusMenuItems}
 									submitEditForm={onEdit}
 									closeEditForm={() =>
@@ -269,8 +272,8 @@ const ActionButton = ({
 					<DialogContent>
 						<DialogContentText id="alert-dialog-slide-description">
 							<DeleteForm
-								staffMember={rowData.staffMember}
-								deleteStaff={() => onDelete(rowId as number)}
+								vehicle={rowData.vehicle.text}
+								deleteVehicle={() => onDelete(rowId as number)}
 								closeDeleteForm={() =>
 									setDialogMode({
 										rowId: null,

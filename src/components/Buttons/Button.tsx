@@ -36,7 +36,7 @@ const buttonType = {
 
 const Button = ({ children, variant, ...props }: ButtonProps) => {
 	const Button = buttonType[variant as ButtonType];
-	console.log("button render");
+	// console.log("button render");
 	return (
 		<Button variant={variant} {...props}>
 			{children}

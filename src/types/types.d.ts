@@ -45,4 +45,57 @@ export type ChipType =
 	| "booking agent"
 	| "hotel manager"
 	| "restaurant manager"
-	| "marketting officer";
+	| "marketting officer"
+	| "sedan"
+	| "van"
+	| "minibus"
+	| "suv"
+	| "bus"
+	| undefined;
+export type CarType = "sedan" | "van" | "minibus" | "suv" | "bus";
+
+// export type StatusType = "all-status" | "available" | "unavailable" | "pending";
+export type StatusType = "All Status" | "Available" | "Unavailable" | "Pending";
+
+export interface StaffTableType {
+	id: number;
+	staffMember: string;
+	email: string;
+	phone: string;
+	role: string;
+	status: string;
+	joinedDate: string;
+}
+
+export interface VehicleTableType {
+	id: number;
+	vehicle: {
+		icon: string;
+		text: string;
+	};
+	vehicleType: string;
+	registrationNo: string;
+	capacity: number;
+	driver: string;
+	priceDay: number;
+	status: StatusType;
+}
+
+export type HotelStatusType = "Active" | "Inactive" | "Pending";
+
+export interface HotelTableType {
+	id: number;
+	hotel: {
+		icon: string;
+		text: string;
+	};
+	location: string;
+	contact: string;
+	rooms: number;
+	priceRange: {
+		min: number;
+		max: number;
+	};
+	rating: number;
+	status: HotelStatusType;
+}

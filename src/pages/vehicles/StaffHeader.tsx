@@ -10,14 +10,14 @@ import AddForm from "./AddForm";
 
 interface TestProps {
 	dataSize: number;
-	onStaffAdd: (data: any) => void;
-	roleMenuItems: string[];
+	onVehicleAdd: (data: any) => void;
+	vehicleTypeMenuItems: string[];
 	statusMenuItems: string[];
 }
 export function StaffHeader({
 	dataSize,
-	onStaffAdd,
-	roleMenuItems,
+	onVehicleAdd,
+	vehicleTypeMenuItems,
 	statusMenuItems,
 }: TestProps) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -36,15 +36,15 @@ export function StaffHeader({
 						flexDirection: "column",
 					}}
 				>
-					<Typography variant="h3">Staff Management</Typography>
-					<Typography variant="caption">{dataSize} staff members</Typography>
+					<Typography variant="h3">Vehicle Management</Typography>
+					<Typography variant="caption">{dataSize} total vehicles</Typography>
 				</Box>
 				<Button
 					onClick={() => setIsOpen(true)}
 					variant="contained"
 					startIcon={<AddIcon />}
 				>
-					Add Staff
+					Add Vehicles
 				</Button>
 			</Box>
 			{isOpen ? (
@@ -65,16 +65,16 @@ export function StaffHeader({
 							gap: "1rem",
 						}}
 					>
-						<Typography variant="h3">Add New Staff Member</Typography>
+						<Typography variant="h3">Add New Vehicle</Typography>
 						<IconButton onClick={() => setIsOpen(false)} aria-label="delete">
 							<CloseIcon />
 						</IconButton>
 					</Box>
 
 					<AddForm
-						addStaffMembers={onStaffAdd}
+						addVehicle={onVehicleAdd}
 						closeForm={() => setIsOpen(false)}
-						rolemenuItems={roleMenuItems}
+						vehicleType={vehicleTypeMenuItems}
 						statusMenuItems={statusMenuItems}
 					/>
 				</Dialog>

@@ -38,45 +38,42 @@ export function Header({
 	const { pathname } = useLocation();
 	const { theme, toggleTheme } = useTheme();
 	const title = routeTitles[pathname] ?? "App";
-	console.log("header render");
+	console.log("dashboard");
 
 	return (
 		<Box
 			variant="shadow"
-			component={"header"}
+			component="header"
 			sx={{
 				minHeight: 70,
 				bgcolor: "background.paper",
 				flexShrink: 0,
 				px: "1.4rem",
+				py: { xs: "0.8rem", sm: 0 }, // Extra padding on mobile when stacked
 				display: "flex",
 				alignItems: "center",
-				flexWrap: "wrap",
-				zIndex: "10",
-				justifyContent: "space-between",
+				zIndex: 10,
 			}}
 		>
 			<Box
 				sx={{
 					display: "flex",
+					// Stacks elements vertically on mobile, horizontally on tablet/desktop
+					flexDirection: { xs: "column", sm: "row" },
 					justifyContent: "space-between",
-					// bgcolor: "green",
-					flexWrap: "wrap",
-
-					gap: "10px",
-					alignItems: "center",
+					alignItems: { xs: "stretch", sm: "center" },
+					gap: "15px",
 					width: "100%",
 				}}
 			>
+				{/* LEFT SIDE: Titles and Breadcrumbs */}
 				<Box
 					sx={{
 						display: "flex",
 						flexDirection: "column",
 					}}
 				>
-					<Typography variant="h3" sx={{}}>
-						{title}
-					</Typography>
+					<Typography variant="h3">{title}</Typography>
 					<Typography
 						variant="caption"
 						sx={{
@@ -85,7 +82,7 @@ export function Header({
 					>
 						Dashboard /{" "}
 						<Typography
-							component={"span"}
+							component="span"
 							variant="caption"
 							sx={{
 								color: "primary.main",
@@ -96,86 +93,110 @@ export function Header({
 						</Typography>
 					</Typography>
 				</Box>
+
+				{/* RIGHT SIDE: Interactive Widgets & Mobile Trigger */}
 				<Box
 					sx={{
 						display: "flex",
 						gap: "1.3rem",
-						// bgcolor: "green",
 						alignItems: "center",
+						justifyContent: "space-between",
 					}}
 				>
-					<TooltipWithBadge
-						title="Notifications"
-						icon={NotificationsIcon}
-						color="error"
-						count={3}
-					></TooltipWithBadge>
+					{/* Action controls wrapper */}
 					<Box
-						onClick={() => setDropDownMenuOpen(!dropDownMenuOpen)}
 						sx={{
 							display: "flex",
-							padding: "8px",
-							borderRadius: "8px",
-							gap: "10px",
-							cursor: "pointer",
 							alignItems: "center",
-							"&:hover": {
-								bgcolor: "#e7e7e779",
-							},
+							gap: "1.3rem",
+							position: "relative", // Absolute dropdown relies on this parent context
 						}}
 					>
-						<Avatar
-							{...stringAvatar("James Wilson")}
-							sx={{
-								bgcolor: "primary.main",
-								fontSize: "14px",
-								width: 40,
-								fontWeight: 600,
-								height: 40,
-							}}
+						<TooltipWithBadge
+							title="Notifications"
+							icon={NotificationsIcon}
+							color="error"
+							count={3}
 						/>
+
+						{/* Profile Pill */}
+
 						<Box
+							onClick={() => setDropDownMenuOpen(!dropDownMenuOpen)}
 							sx={{
 								display: "flex",
-								flexDirection: "column",
+								padding: "8px",
+								borderRadius: "8px",
+								gap: "10px",
+								cursor: "pointer",
+								alignItems: "center",
+								"&:hover": {
+									bgcolor: "action.hover",
+								},
 							}}
 						>
-							<Typography variant="h3">James Wilson</Typography>
-							<Typography variant="caption">Administrator</Typography>
+							<Avatar
+								{...stringAvatar("James Wilson")}
+								sx={{
+									bgcolor: "primary.main",
+									fontSize: "14px",
+									width: 40,
+									fontWeight: 600,
+									height: 40,
+								}}
+							/>
+							{/* Hide textual details on small screens to clear real estate */}
+							<Box
+								sx={{
+									display: { xs: "none", md: "flex" },
+									flexDirection: "column",
+								}}
+							>
+								<Typography variant="h3" sx={{ fontSize: "14px" }}>
+									James Wilson
+								</Typography>
+								<Typography variant="caption">Administrator</Typography>
+							</Box>
 						</Box>
+
+						{/* Dropdown Box position fixed to sit neatly below controls */}
+						<Box
+							sx={{
+								position: "absolute",
+								right: 0,
+								display: dropDownMenuOpen ? "block" : "none",
+								top: "55px",
+								zIndex: 20,
+							}}
+						>
+							<ListItems />
+						</Box>
+
+						{/* Theme Select Trigger */}
+						<FormControl size="small" sx={{ minWidth: 90 }}>
+							<InputLabel id="theme-select-label">Theme</InputLabel>
+							<Select
+								labelId="theme-select-label"
+								id="theme-select"
+								value={theme}
+								label="Theme"
+								onChange={() => toggleTheme()}
+							>
+								<MenuItem value="light">Light</MenuItem>
+								<MenuItem value="dark">Dark</MenuItem>
+							</Select>
+						</FormControl>
 					</Box>
 
-					<Box
+					{/* Hamburger Mobile Menu Switcher */}
+					<MenuIcon
+						onClick={() => setSidebarOpen(!sidebarOpen)}
 						sx={{
-							position: "absolute",
-							right: "30px",
-							display: dropDownMenuOpen ? "block" : "none",
-							top: "75px",
-							zIndex: 20,
+							display: { xs: "block", above1000: "none" },
+							cursor: "pointer",
 						}}
-					>
-						<ListItems />
-					</Box>
-					<FormControl>
-						<InputLabel>Theme</InputLabel>
-						<Select
-							id="hehr"
-							value={theme}
-							label="Theme"
-							onChange={() => toggleTheme()}
-						>
-							<MenuItem value="light">Light</MenuItem>
-							<MenuItem value="dark">Dark</MenuItem>
-						</Select>
-					</FormControl>
+					/>
 				</Box>
-				<MenuIcon
-					onClick={() => setSidebarOpen(!sidebarOpen)}
-					sx={{
-						display: { xs: "block", above1000: "none" },
-						cursor: "pointer",
-					}}
-				/>
 			</Box>
 		</Box>
 	);

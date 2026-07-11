@@ -35,7 +35,7 @@ export default function EditForm({
 	submitEditForm,
 	statusMenuItems,
 	closeEditForm,
-}: EditFormProps) {
+}: Readonly<EditFormProps>) {
 	return (
 		<Box
 			className="overlay-content"
@@ -51,7 +51,6 @@ export default function EditForm({
 				flexDirection: "column",
 				gap: "1rem",
 			}}
-			// onClick={(e) => e.stopPropagation()}
 		>
 			<form
 				action={(formData: FormData) => submitEditForm(formData, rowId)}
@@ -67,7 +66,6 @@ export default function EditForm({
 						flexDirection: "column",
 						gap: "1rem",
 						height: "260px",
-
 						overflowY: "auto",
 					}}
 				>
@@ -80,7 +78,6 @@ export default function EditForm({
 							name="fullName"
 							defaultValue={rowData.staffMember}
 							required
-							// onChange={(e)=>inputChange(e)}
 							type="text"
 							size="small"
 						></TextField>

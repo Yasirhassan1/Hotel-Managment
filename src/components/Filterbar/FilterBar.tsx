@@ -6,22 +6,49 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { memo } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
+import { useDebounce } from "../../hooks/useDebounce";
 import type { FilterBarProps } from "../../types/types";
 import TextField from "../TextFields/TextField";
 
 const FilterBar = ({ filter, setFilter }: FilterBarProps) => {
-	console.log("filter bar re-render");
-	function handleFilterChange(filterId: string, newValue: string) {
+	const [searchTerm, setSearchTerm] = useState("");
+	const debounceValue = useDebounce(searchTerm, 1000);
+
+	useEffect(() => {
 		setFilter((prev) => ({
 			...prev,
-			filters: prev.filters.map((f) =>
-				f.id === filterId ? { ...f, defaultValue: newValue } : f,
-			),
+			searchFilter: { ...prev.searchFilter, value: debounceValue },
 		}));
-	}
+	}, [debounceValue, setFilter]);
 
-	function handleReset() {
+	// useEffect(()=>{
+	// 	const timer = setTimeout(() => {
+	// 		setFilter((prev) => ({
+	// 					...prev,
+	// 					searchFilter: { ...prev.searchFilter, value: searchTerm },
+	// 				}))
+	// 	}, 2000);
+
+	// 	return () => {
+	// 		clearTimeout(timer);
+	// 	};
+	// }, [searchTerm])
+	console.log("filter bar re-render");
+
+	const handleFilterChange = useCallback(
+		(filterId: string, newValue: string) => {
+			setFilter((prev) => ({
+				...prev,
+				filters: prev.filters.map((f) =>
+					f.id === filterId ? { ...f, defaultValue: newValue } : f,
+				),
+			}));
+		},
+		[setFilter],
+	);
+
+	const handleReset = useCallback(() => {
 		setFilter((prev) => ({
 			...prev,
 			searchFilter: {
@@ -33,7 +60,7 @@ const FilterBar = ({ filter, setFilter }: FilterBarProps) => {
 				defaultValue: f.options[0]?.value ?? "",
 			})),
 		}));
-	}
+	}, [setFilter]);
 
 	return (
 		<Box
@@ -51,12 +78,13 @@ const FilterBar = ({ filter, setFilter }: FilterBarProps) => {
 			<TextField
 				size="small"
 				placeholder={filter.searchFilter.placeholder}
-				value={filter.searchFilter.value}
+				value={searchTerm}
 				onChange={(e) =>
-					setFilter((prev) => ({
-						...prev,
-						searchFilter: { ...prev.searchFilter, value: e.target.value },
-					}))
+					// setFilter((prev) => ({
+					// 	...prev,
+					// 	searchFilter: { ...prev.searchFilter, value: e.target.value },
+					// }))
+					setSearchTerm(e.target.value)
 				}
 				sx={{
 					flex: 1,

@@ -26,7 +26,7 @@ export default function AddForm({
 	rolemenuItems,
 	closeForm,
 	statusMenuItems,
-}: AddFormProps) {
+}: Readonly<AddFormProps>) {
 	const {
 		register,
 		handleSubmit,
@@ -113,8 +113,6 @@ export default function AddForm({
 									<TextField
 										id="email-address"
 										label="Email Address"
-										// name="email"
-										// onChange={(e)=>inputChange(e)}
 										{...register("email", {
 											required: "This field is required",
 											pattern: {

@@ -63,7 +63,7 @@ export default function ViewForm({ data }: ViewFormProps) {
 		>
 			<Avatar {...stringAvatar(data.staffMember)} />
 			<Typography variant="h3">{data.staffMember}</Typography>
-			<Chip variant={data.role.toLowerCase() as ChipType} label={data.role} />
+			<Chip chipType={data.role.toLowerCase() as ChipType} label={data.role} />
 			<Box
 				sx={{
 					display: "flex",
@@ -79,7 +79,6 @@ export default function ViewForm({ data }: ViewFormProps) {
 						sx={{
 							display: "flex",
 							padding: 1,
-
 							alignItems: "center",
 							gap: "0.8rem",
 							width: "100%",

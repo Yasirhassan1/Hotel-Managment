@@ -67,7 +67,7 @@ const TypographyType = {
 };
 
 const Typography = ({ variant, children, ...props }: TypographyProps) => {
-	console.log("typo render");
+	// console.log("typo render");
 	const Typography = TypographyType[variant as TypoType];
 
 	return <Typography {...props}>{children}</Typography>;
