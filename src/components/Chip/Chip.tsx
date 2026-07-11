@@ -213,6 +213,32 @@ const chipColors: Record<string, { bgColor: string; color?: string }> = {
 		bgColor: "#EAF3FC",
 		color: "#006ADA",
 	},
+	thai: {
+		bgColor: "#FAEDED",
+		color: "#C62828",
+	},
+	chinese: {
+		bgColor: "#FDF1EA",
+		color: "#E65100",
+	},
+
+	italian: {
+		bgColor: "#e2f4f3",
+		color: "#2E7D74",
+	},
+
+	seafood: {
+		bgColor: "#EAF4FA",
+		color: "#0277BD",
+	},
+	indian: {
+		bgColor: "#FEF4EA",
+		color: "#F57C00",
+	},
+	international: {
+		bgColor: "#F3ECF7",
+		color: "#AC3F9A",
+	},
 };
 
 const Chip = styled(MUIChip)<ChipProps>(

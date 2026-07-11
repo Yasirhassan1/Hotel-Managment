@@ -9,6 +9,7 @@ import RecientActivity from "./RecientActivity";
 import { summaryCardData } from "./summaryCardData";
 
 const Dashboard = () => {
+	console.log("Dashboard");
 	return (
 		<Box
 			sx={{

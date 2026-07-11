@@ -9,14 +9,16 @@ import {
 	ListItemIcon,
 	ListItemText,
 } from "@mui/material";
+import { memo } from "react";
 import { NavLink } from "react-router";
-export default function ListItems() {
+
+const ListItems = () => {
 	return (
 		<List
 			sx={{
 				bgcolor: "background.paper",
 				boxShadow: "6px 6px 10px #0000003c",
-				borderRadius: 5,
+			
 			}}
 		>
 			<ListItem disablePadding>
@@ -96,4 +98,6 @@ export default function ListItems() {
 			</ListItem>
 		</List>
 	);
-}
+};
+
+export default memo(ListItems);

@@ -39,6 +39,7 @@ const roleMenuItems = [
 const StaffManagement = () => {
 	const { reset } = useForm();
 	const { snackbar, setSnackbar, initializeSnackbar } = useSnackbar();
+	console.log("Staff manager")
 
 	const [paginationModel, setPaginationModel] = useState({
 		pageSize: 8,

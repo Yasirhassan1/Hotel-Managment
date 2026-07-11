@@ -1,10 +1,12 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { Dialog } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import { useState } from "react";
 import { useLocation } from "react-router";
 import Typography from "../../components/Typography/Typography";
 import TooltipWithBadge from "../../components/tooltip/ToolTipBadge";
@@ -16,8 +18,6 @@ import ListItems from "./ListItems";
 interface HeaderProps {
 	sidebarOpen: boolean;
 	setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-	dropDownMenuOpen: boolean;
-	setDropDownMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const routeTitles: Record<string, string> = {
@@ -29,16 +29,11 @@ export const routeTitles: Record<string, string> = {
 	"/settings": "Settings",
 };
 
-export function Header({
-	sidebarOpen,
-	setSidebarOpen,
-	dropDownMenuOpen,
-	setDropDownMenuOpen,
-}: HeaderProps) {
+export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 	const { pathname } = useLocation();
 	const { theme, toggleTheme } = useTheme();
 	const title = routeTitles[pathname] ?? "App";
-	console.log("dashboard");
+	const [openDialog, setOpenDialog] = useState(false);
 
 	return (
 		<Box
@@ -122,7 +117,7 @@ export function Header({
 						{/* Profile Pill */}
 
 						<Box
-							onClick={() => setDropDownMenuOpen(!dropDownMenuOpen)}
+							onClick={() => setOpenDialog(!openDialog)}
 							sx={{
 								display: "flex",
 								padding: "8px",
@@ -159,20 +154,28 @@ export function Header({
 							</Box>
 						</Box>
 
-						{/* Dropdown Box position fixed to sit neatly below controls */}
-						<Box
-							sx={{
-								position: "absolute",
-								right: 0,
-								display: dropDownMenuOpen ? "block" : "none",
-								top: "55px",
-								zIndex: 20,
-							}}
-						>
-							<ListItems />
-						</Box>
+						{openDialog && (
+							<Dialog
+								open={openDialog}
+								onClose={() => setOpenDialog(false)}
+								hideBackdrop={true}
+								sx={{
+									"& .MuiDialog-container": {
+										alignItems: "flex-start", // Allows top positioning
+										justifyContent: "flex-end", // Allows right positioning
+									},
+									"& .MuiPaper-root": {
+										position: "absolute",
+										top: "60px",
+										right: "80px",
+										margin: 0,
+									},
+								}}
+							>
+								<ListItems />
+							</Dialog>
+						)}
 
-						{/* Theme Select Trigger */}
 						<FormControl size="small" sx={{ minWidth: 90 }}>
 							<InputLabel id="theme-select-label">Theme</InputLabel>
 							<Select
@@ -188,7 +191,6 @@ export function Header({
 						</FormControl>
 					</Box>
 
-					{/* Hamburger Mobile Menu Switcher */}
 					<MenuIcon
 						onClick={() => setSidebarOpen(!sidebarOpen)}
 						sx={{

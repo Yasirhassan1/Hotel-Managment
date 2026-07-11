@@ -1,46 +1,41 @@
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import DriveEtaIcon from "@mui/icons-material/DriveEta";
-import GroupIcon from "@mui/icons-material/Group";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import PhoneIcon from "@mui/icons-material/Phone";
+import PlaceIcon from "@mui/icons-material/Place";
 import Typography from "@mui/material/Typography";
 import Chip from "../../components/Chip/Chip";
 import Box from "../../styled/styled";
-import type { ChipType, StatusType } from "../../types/types";
+import type { ChipType, RestaurantTableType } from "../../types/types";
 
 interface ViewFormProps {
-	data: {
-		id: number;
-		vehicle: {
-			icon: string;
-			text: string;
-		};
-		vehicleType: string;
-		registrationNo: string;
-		capacity: number;
-		driver: string;
-		priceDay: number;
-		status: StatusType;
-	};
+	data: RestaurantTableType;
 }
 
 export default function ViewForm({ data }: Readonly<ViewFormProps>) {
 	const infoCards = [
 		{
 			id: "1",
-			icon: DriveEtaIcon,
-			title: "Registration",
-			subTitle: data.registrationNo,
+			icon: PlaceIcon,
+			title: "Location",
+			subTitle: data.location,
 		},
 		{
 			id: "2",
-			icon: GroupIcon,
-			title: "Capacity",
-			subTitle: `${data.capacity} Seats`,
+			icon: AccessTimeIcon,
+			title: "Opening Hours",
+			subTitle: `${data.openingHours.open} – ${data.openingHours.close}`,
 		},
 		{
 			id: "3",
-			icon: AttachMoneyIcon,
-			title: "Price Per Day",
-			subTitle: `$ ${data.priceDay}`,
+			icon: MenuBookIcon,
+			title: "Menu Items",
+			subTitle: `${data.restaurant.menuItemsCount} Items`,
+		},
+		{
+			id: "4",
+			icon: PhoneIcon,
+			title: "Contact",
+			subTitle: data.contact,
 		},
 	];
 
@@ -63,8 +58,8 @@ export default function ViewForm({ data }: Readonly<ViewFormProps>) {
 					gap: "10px",
 				}}
 			>
-				<Typography variant="h1">{data.vehicle.icon}</Typography>
-				<Typography variant="h4">{data.vehicle.text}</Typography>
+				<Typography variant="h1">{data.restaurant.icon}</Typography>
+				<Typography variant="h4">{data.restaurant.text}</Typography>
 			</Box>
 			<Box
 				sx={{
@@ -77,11 +72,12 @@ export default function ViewForm({ data }: Readonly<ViewFormProps>) {
 				}}
 			>
 				<Chip
-					chipType={data.vehicleType.toLowerCase() as ChipType}
-					label={data.vehicleType}
+					chipType={data.cuisine.toLowerCase() as ChipType}
+					label={data.cuisine}
 				/>
+
 				<Chip
-					chipType={data.vehicleType.toLowerCase() as ChipType}
+					chipType={data.status.toLowerCase() as ChipType}
 					label={data.status}
 				/>
 			</Box>

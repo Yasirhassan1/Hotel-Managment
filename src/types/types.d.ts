@@ -51,6 +51,12 @@ export type ChipType =
 	| "minibus"
 	| "suv"
 	| "bus"
+	| "indian"
+	| "italian"
+	| "thai"
+	| "chinese"
+	| "seafood"
+	| "international"
 	| undefined;
 export type CarType = "sedan" | "van" | "minibus" | "suv" | "bus";
 
@@ -98,4 +104,23 @@ export interface HotelTableType {
 	};
 	rating: number;
 	status: HotelStatusType;
+}
+
+export type RestaurantStatusType = "Active" | "Inactive" | "Pending";
+
+export interface RestaurantTableType {
+	id: number;
+	restaurant: {
+		icon: string;
+		text: string;
+		menuItemsCount: number;
+	};
+	location: string;
+	contact: string;
+	cuisine: string;
+	openingHours: {
+		open: string;
+		close: string;
+	};
+	status: RestaurantStatusType;
 }

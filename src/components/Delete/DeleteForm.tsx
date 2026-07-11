@@ -1,21 +1,29 @@
 import CloseIcon from "@mui/icons-material/Close";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
+import { memo } from "react";
 import Button from "../../components/Buttons/Button";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
 
 interface DeleteFormProps {
-	staffMember: string;
-	closeDeleteForm: () => void;
-	deleteStaff: () => void;
+	title: string;
+	message: string;
+	warningMessage: string;
+	targetDelete: string;
+	close: () => void;
+	remove: () => void;
 }
 
-export default function DeleteForm({
-	staffMember,
-	closeDeleteForm,
-	deleteStaff,
-}: DeleteFormProps) {
+const DeleteForm = ({
+	title,
+	message,
+	targetDelete,
+	warningMessage,
+	close,
+	remove,
+}: DeleteFormProps) => {
+	console.log("Delete form");
 	return (
 		<Box
 			sx={{
@@ -33,9 +41,9 @@ export default function DeleteForm({
 				}}
 			>
 				<Typography variant="h3" color="error">
-					Delete Staff Member
+					{title}
 				</Typography>
-				<IconButton onClick={closeDeleteForm} aria-label="delete">
+				<IconButton onClick={close} aria-label="delete">
 					<CloseIcon />
 				</IconButton>
 			</Box>
@@ -48,9 +56,9 @@ export default function DeleteForm({
 				}}
 			>
 				<Typography variant="body1">
-					Are you sure you want to delete{" "}
+					{message}
 					<Typography component={"span"} variant="h3">
-						{staffMember}
+						{targetDelete}
 					</Typography>{" "}
 					? This action cannot be undone.
 				</Typography>
@@ -62,10 +70,7 @@ export default function DeleteForm({
 						bgcolor: "#fddede",
 					}}
 				>
-					<Typography variant="body1">
-						This will permanently remove the staff member and all associated
-						data.
-					</Typography>
+					<Typography variant="body1">{warningMessage}</Typography>
 				</Box>
 			</Box>
 			<Divider />
@@ -77,7 +82,7 @@ export default function DeleteForm({
 					mt: "0.5rem",
 				}}
 			>
-				<Button variant="outlined" onClick={closeDeleteForm}>
+				<Button variant="outlined" onClick={close}>
 					Cancel
 				</Button>
 
@@ -85,11 +90,13 @@ export default function DeleteForm({
 					variant="contained"
 					color="error"
 					type="submit"
-					onClick={deleteStaff}
+					onClick={remove}
 				>
 					Delete
 				</Button>
 			</Box>
 		</Box>
 	);
-}
+};
+
+export default memo(DeleteForm);

@@ -14,9 +14,9 @@ import type { GridRowId } from "@mui/x-data-grid";
 import { GridActionsCellItem } from "@mui/x-data-grid";
 import { useState } from "react";
 import Button from "../../components/Buttons/Button";
+import DeleteForm from "../../components/Delete/DeleteForm";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
-import DeleteForm from "./DeleteForm";
 import EditForm from "./EditForm";
 import ViewForm from "./ViewForm";
 
@@ -269,9 +269,12 @@ const ActionButton = ({
 					<DialogContent>
 						<DialogContentText id="alert-dialog-slide-description">
 							<DeleteForm
-								staffMember={rowData.staffMember}
-								deleteStaff={() => onDelete(rowId as number)}
-								closeDeleteForm={() =>
+								title="Delete Staff"
+								message="Are you sure you want to delete "
+								warningMessage="This will permanently remove the staff record."
+								targetDelete={rowData.staffMember}
+								remove={() => onDelete(rowId as number)}
+								close={() =>
 									setDialogMode({
 										rowId: null,
 										mode: null,

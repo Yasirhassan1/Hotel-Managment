@@ -9,7 +9,6 @@ import { SideBar } from "./sidebar/SideBar";
 
 const AppLayout = () => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
-	const [dropDownMenuOpen, setDropDownMenuOpen] = useState(false);
 
 	return (
 		<>
@@ -56,15 +55,9 @@ const AppLayout = () => {
 						overflow: "hidden",
 					}}
 				>
-					<Header
-						sidebarOpen={sidebarOpen}
-						setSidebarOpen={setSidebarOpen}
-						dropDownMenuOpen={dropDownMenuOpen}
-						setDropDownMenuOpen={setDropDownMenuOpen}
-					/>
+					<Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
 					<Box
-						onClick={() => setDropDownMenuOpen(false)}
 						sx={(theme) => ({
 							flex: 1,
 							overflowY: "auto",

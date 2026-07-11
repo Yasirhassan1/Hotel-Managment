@@ -4,13 +4,9 @@ import Chip from "../../components/Chip/Chip";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
 import { stringAvatar } from "../../utils/avatar-short-name";
+import type { ChipType } from "../../types/types";
 
-type chipTypes =
-	| "active"
-	| "inactive"
-	| "available"
-	| "unavailable"
-	| "pending";
+
 
 const data = [
 	{
@@ -130,7 +126,7 @@ export default function RecientActivity() {
 						</Box>
 						<Chip
 							label={cur.status}
-							variant={cur.status.toLowerCase() as chipTypes}
+							chipType={cur.status.toLowerCase() as ChipType}
 						/>
 					</Box>
 				))}

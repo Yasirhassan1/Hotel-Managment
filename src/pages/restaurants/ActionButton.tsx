@@ -17,7 +17,7 @@ import Button from "../../components/Buttons/Button";
 import DeleteForm from "../../components/Delete/DeleteForm";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
-import type { HotelTableType } from "../../types/types";
+import type { RestaurantTableType } from "../../types/types";
 import EditForm from "./EditForm";
 import ViewForm from "./ViewForm";
 
@@ -30,17 +30,17 @@ interface DialogModeProp {
 
 interface ActionsButtonProps {
 	rowId: GridRowId;
-	rowData: HotelTableType;
+	rowData: RestaurantTableType;
+	cuisineMenuItems: string[];
 	statusMenuItems: string[];
-	ratingMenuItems: string[];
 	onEdit: (formData: any, id: number) => void;
 	onDelete: (id: number) => void;
 }
 const ActionButton = ({
 	rowId,
 	rowData,
+	cuisineMenuItems,
 	statusMenuItems,
-	ratingMenuItems,
 	onEdit,
 	onDelete,
 }: ActionsButtonProps) => {
@@ -140,7 +140,7 @@ const ActionButton = ({
 								gap: "1rem",
 							}}
 						>
-							<Typography variant="h3">Hotel Details</Typography>
+							<Typography variant="h3">Restaurant Details</Typography>
 							<IconButton
 								onClick={() =>
 									setDialogMode({
@@ -166,7 +166,11 @@ const ActionButton = ({
 							</DialogContentText>
 						</DialogContent>
 						<DialogActions>
-							<Button variant="outlined" type="submit" startIcon={<EditIcon />}>
+							<Button
+								variant="outlined"
+								startIcon={<EditIcon />}
+								onClick={() => handleClick(rowId, "editForm")}
+							>
 								Edit
 							</Button>
 							<Button
@@ -210,7 +214,7 @@ const ActionButton = ({
 								gap: "1rem",
 							}}
 						>
-							<Typography variant="h3">Edit Hotel</Typography>
+							<Typography variant="h3">Edit Restaurant</Typography>
 							<IconButton
 								onClick={() =>
 									setDialogMode({
@@ -228,8 +232,8 @@ const ActionButton = ({
 								<EditForm
 									rowId={rowId as number}
 									rowData={rowData}
+									cuisineMenuItems={cuisineMenuItems}
 									statusMenuItems={statusMenuItems}
-									ratingMenuItems={ratingMenuItems}
 									submitEditForm={onEdit}
 									closeEditForm={() =>
 										setDialogMode({
@@ -258,22 +262,11 @@ const ActionButton = ({
 				>
 					<DialogContent>
 						<DialogContentText id="alert-dialog-slide-description">
-							{/* <DeleteForm
-								hotel={rowData.hotel.text}
-								deleteHotel={() => onDelete(rowId as number)}
-								closeDeleteForm={() =>
-									setDialogMode({
-										rowId: null,
-										mode: null,
-									})
-								}
-							/> */}
-
 							<DeleteForm
-								title="Delete Hotel"
+								title="Delete Restaurant"
 								message="Are you sure you want to delete "
-								warningMessage="This will permanently remove the Hotel record."
-								targetDelete={rowData.hotel.text}
+								warningMessage="This will permanently remove the Restaurant record."
+								targetDelete={rowData.restaurant.text}
 								remove={() => onDelete(rowId as number)}
 								close={() =>
 									setDialogMode({

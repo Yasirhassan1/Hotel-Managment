@@ -17,10 +17,10 @@ import type { GridRowId } from "@mui/x-data-grid";
 import { GridActionsCellItem } from "@mui/x-data-grid";
 import { useState } from "react";
 import Button from "../../components/Buttons/Button";
+import DeleteForm from "../../components/Delete/DeleteForm";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
 import type { VehicleTableType } from "../../types/types";
-import DeleteForm from "./DeleteForm";
 import EditForm from "./EditForm";
 import ViewForm from "./ViewForm";
 
@@ -271,10 +271,23 @@ const ActionButton = ({
 				>
 					<DialogContent>
 						<DialogContentText id="alert-dialog-slide-description">
-							<DeleteForm
+							{/* <DeleteForm
 								vehicle={rowData.vehicle.text}
 								deleteVehicle={() => onDelete(rowId as number)}
 								closeDeleteForm={() =>
+									setDialogMode({
+										rowId: null,
+										mode: null,
+									})
+								}
+							/> */}
+							<DeleteForm
+								title="Delete Vehicle"
+								message="Are you sure you want to delete "
+								warningMessage="This will permanently remove the vehicle record."
+								targetDelete={rowData.vehicle.text}
+								remove={() => onDelete(rowId as number)}
+								close={() =>
 									setDialogMode({
 										rowId: null,
 										mode: null,
