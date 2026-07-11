@@ -14,7 +14,7 @@ interface HotelHeaderProps {
 	statusMenuItems: string[];
 	ratingMenuItems: string[];
 }
-export function HotelHeader({	
+export function HotelHeader({
 	dataSize,
 	onHotelAdd,
 	statusMenuItems,
