@@ -18,7 +18,6 @@ const ListItems = () => {
 			sx={{
 				bgcolor: "background.paper",
 				boxShadow: "6px 6px 10px #0000003c",
-			
 			}}
 		>
 			<ListItem disablePadding>

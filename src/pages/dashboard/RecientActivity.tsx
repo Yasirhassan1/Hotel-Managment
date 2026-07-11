@@ -3,10 +3,8 @@ import Button from "../../components/Buttons/Button";
 import Chip from "../../components/Chip/Chip";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
-import { stringAvatar } from "../../utils/avatar-short-name";
 import type { ChipType } from "../../types/types";
-
-
+import { stringAvatar } from "../../utils/avatar-short-name";
 
 const data = [
 	{
