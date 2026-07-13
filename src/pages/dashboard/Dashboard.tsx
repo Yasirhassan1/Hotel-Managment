@@ -1,14 +1,11 @@
 import { memo } from "react";
 import BarChart from "../../components/charts/BarChar";
 import LineChart from "../../components/charts/LineChart";
-import SummaryCard from "../../components/summary cards/SummaryCard";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
 import DashboardStats from "./DashboardStats";
 import QuickAction from "./QuickAction";
-import useDashboardStatsQuery from "./queries/useDashboardStatsQuery";
 import RecientActivity from "./RecientActivity";
-import { summaryCardData } from "./summaryCardData";
 
 const Dashboard = () => {
 	return (

@@ -1,20 +1,46 @@
 import NotificationsIcon from "@mui/icons-material/Notifications";
-// import { Box, Dialog, List, ListItem, ListItemButton } from "@mui/material";
-// import Typography from "@mui/material/Typography";
-import { memo, useState } from "react";
+import {
+	Box,
+	Dialog,
+	DialogTitle,
+	Divider,
+	List,
+	ListItem,
+	ListItemButton,
+} from "@mui/material";
+import Typography from "@mui/material/Typography";
+import { memo, useMemo, useState } from "react";
+import Button from "../../components/Buttons/Button";
 import TooltipWithBadge from "../../components/tooltip/ToolTipBadge";
 
-// interface NotificationProps{
-//     name: string,
-//     time: string,
-//     active: boolean
-// }
-// interface NotificationListProps{
-//     notifications: NotificationProps[];
+interface NotificationProps {
+	id: string;
+	name: string;
+	time: string;
+	active: boolean;
+}
+interface NotificationListProps {
+	notificationsList: NotificationProps[];
+}
 
-// }
-const Notifications = () => {
+const Notifications = ({ notificationsList }: NotificationListProps) => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [notifications, setNotifications] = useState(notificationsList);
+
+	const sortedNotifications = useMemo(() => {
+		return notifications.toSorted(
+			(cur, next) => Number(next.active) - Number(cur.active),
+		);
+	}, [notifications]);
+
+	function readAllNotification() {
+		const temp = notifications.map((cur) => ({
+			...cur,
+			active: false,
+		}));
+		setNotifications(temp);
+	}
+
 	return (
 		<>
 			<TooltipWithBadge
@@ -24,7 +50,7 @@ const Notifications = () => {
 				count={3}
 				onClick={() => setIsOpen((prev) => !prev)}
 			></TooltipWithBadge>
-			{/* {isOpen && (
+			{isOpen && (
 				<Dialog
 					open={isOpen}
 					onClose={() => setIsOpen(false)}
@@ -37,51 +63,94 @@ const Notifications = () => {
 						"& .MuiPaper-root": {
 							position: "absolute",
 							top: "60px",
-							right: "80px",
+							right: "290px",
+							minWidth: "300px",
+							borderRadius: "15px",
+
 							margin: 0,
 						},
 					}}
 				>
+					<Box
+						sx={{
+							display: "flex",
+							justifyContent: "space-between",
+							gap: "10px",
+							alignItems: "center",
+						}}
+					>
+						<DialogTitle sx={{ m: 0, p: 2, fontSize: 16, fontWeight: 600 }}>
+							Notifications
+						</DialogTitle>
+						<Button
+							variant="text"
+							sx={{ textTransform: "none" }}
+							disableRipple
+							onClick={readAllNotification}
+						>
+							Mark all read
+						</Button>
+					</Box>
+					<Divider />
 					<nav aria-label="main mailbox folders">
 						<List>
-							<ListItem disablePadding>
-								<ListItemButton
-									sx={{
-										display: "flex",
-										justifyContent: "space-between",
-										gap: "10px",
-									}}
-								>
-									<Box
+							{notificationsList.length === 0 && (
+								<ListItem>
+									<Typography variant="caption">No any Notification</Typography>
+								</ListItem>
+							)}
+
+							{sortedNotifications.map((cur) => (
+								<ListItem disablePadding key={cur.id}>
+									<ListItemButton
 										sx={{
 											display: "flex",
-											flexDirection: "column",
+											justifyContent: "space-between",
+											gap: "10px",
 										}}
 									>
-										<Typography
-											variant="body1"
+										<Box
 											sx={{
-												fontWeight: 600,
+												display: "flex",
+												flexDirection: "column",
 											}}
 										>
-											New Booking
-										</Typography>
-										<Typography variant="caption">2 min ago</Typography>
-									</Box>
-									<Box
-										sx={{
-											width: 10,
-											height: 10,
-											backgroundColor: "#0068D5",
-											borderRadius: 5,
-										}}
-									></Box>
-								</ListItemButton>
-							</ListItem>
+											<Typography
+												variant="body1"
+												sx={{
+													fontWeight: cur.active ? 600 : 300,
+												}}
+											>
+												{cur.name}
+											</Typography>
+											<Typography variant="caption">{cur.time}</Typography>
+										</Box>
+										{cur.active && (
+											<Box
+												sx={{
+													width: 7,
+													height: 7,
+													backgroundColor: "#0068D5",
+													borderRadius: 5,
+													alignSelf: "start",
+												}}
+											></Box>
+										)}
+									</ListItemButton>
+								</ListItem>
+							))}
 						</List>
 					</nav>
+					<Divider />
+					<Button
+						variant="text"
+						sx={{ textTransform: "none", padding: 2 }}
+						disableRipple
+					>
+						View all notifications
+					</Button>
 				</Dialog>
-			)} */}
+			)}
 		</>
 	);
 };

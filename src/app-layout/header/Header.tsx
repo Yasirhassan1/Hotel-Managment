@@ -1,20 +1,48 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import { Dialog } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import { useState } from "react";
 import { useLocation } from "react-router";
 import Typography from "../../components/Typography/Typography";
-import TooltipWithBadge from "../../components/tooltip/ToolTipBadge";
 import { useTheme } from "../../hooks/useTheme";
 import Box from "../../styled/styled";
-import { stringAvatar } from "../../utils/avatar-short-name";
-import ListItems from "./ListItems";
 import Notifications from "./Notifications";
+import ProfilePill from "./ProfilePill";
+
+const notifications = [
+	{
+		id: "not1",
+		name: "New Booking #0992",
+		time: "2min ago",
+		active: true,
+	},
+
+	{
+		id: "not4",
+		name: "New Booking #992",
+		time: "2min ago",
+		active: false,
+	},
+	{
+		id: "not5",
+		name: "New Booking #0440",
+		time: "16 min ago",
+		active: true,
+	},
+	{
+		id: "not4e",
+		name: "New Booking #3df",
+		time: "16 min ago",
+		active: false,
+	},
+	{
+		id: "not6",
+		name: "New Booking #9393",
+		time: "16 min ago",
+		active: true,
+	},
+];
 
 interface HeaderProps {
 	sidebarOpen: boolean;
@@ -34,8 +62,7 @@ export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 	const { pathname } = useLocation();
 	const { theme, toggleTheme } = useTheme();
 	const title = routeTitles[pathname] ?? "App";
-	const [openDialog, setOpenDialog] = useState(false);
-
+	console.log("header");
 	return (
 		<Box
 			variant="shadow"
@@ -108,69 +135,11 @@ export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 							position: "relative", // Absolute dropdown relies on this parent context
 						}}
 					>
-						<Notifications />
+						<Notifications notificationsList={notifications} />
 
 						{/* Profile Pill */}
 
-						<Box
-							onClick={() => setOpenDialog(!openDialog)}
-							sx={{
-								display: "flex",
-								padding: "8px",
-								borderRadius: "8px",
-								gap: "10px",
-								cursor: "pointer",
-								alignItems: "center",
-								"&:hover": {
-									bgcolor: "action.hover",
-								},
-							}}
-						>
-							<Avatar
-								{...stringAvatar("James Wilson")}
-								sx={{
-									bgcolor: "primary.main",
-									fontSize: "14px",
-									width: 40,
-									fontWeight: 600,
-									height: 40,
-								}}
-							/>
-							{/* Hide textual details on small screens to clear real estate */}
-							<Box
-								sx={{
-									display: { xs: "none", md: "flex" },
-									flexDirection: "column",
-								}}
-							>
-								<Typography variant="h3" sx={{ fontSize: "14px" }}>
-									James Wilson
-								</Typography>
-								<Typography variant="caption">Administrator</Typography>
-							</Box>
-						</Box>
-
-						{openDialog && (
-							<Dialog
-								open={openDialog}
-								onClose={() => setOpenDialog(false)}
-								hideBackdrop={true}
-								sx={{
-									"& .MuiDialog-container": {
-										alignItems: "flex-start", // Allows top positioning
-										justifyContent: "flex-end", // Allows right positioning
-									},
-									"& .MuiPaper-root": {
-										position: "absolute",
-										top: "60px",
-										right: "80px",
-										margin: 0,
-									},
-								}}
-							>
-								<ListItems />
-							</Dialog>
-						)}
+						<ProfilePill />
 
 						<FormControl size="small" sx={{ minWidth: 90 }}>
 							<InputLabel id="theme-select-label">Theme</InputLabel>
