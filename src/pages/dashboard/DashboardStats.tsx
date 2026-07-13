@@ -15,18 +15,21 @@ const DashboardStats = () => {
 
 	if (isError) {
 		return (
-			<Box sx={{
-				display: "flex",
-				flexDirection: "column",
-				gap: 3,
-				justifyContent: "center",
-				alignItems: "center",
-				
-			}}>
+			<Box
+				sx={{
+					display: "flex",
+					flexDirection: "column",
+					gap: 3,
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+			>
 				<Typography variant="h2" color="error">
 					Something went wrong
 				</Typography>
-				<Button onClick={() => refetch()} variant="contained" color="primary">Retry</Button>
+				<Button onClick={() => refetch()} variant="contained" color="primary">
+					Retry
+				</Button>
 			</Box>
 		);
 	}
@@ -79,7 +82,7 @@ function LoadingUI() {
 						bgcolor: theme.palette.background.paper,
 						borderRadius: 8,
 						flex: 1,
-						
+
 						minWidth: "300px",
 					})}
 				>

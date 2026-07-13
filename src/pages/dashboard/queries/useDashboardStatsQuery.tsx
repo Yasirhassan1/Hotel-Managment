@@ -11,7 +11,7 @@ export default function useDashboardStatsQuery() {
 async function loadData() {
 	try {
 		await new Promise((resolve) => setTimeout(resolve, 2000));
-            // throw new Error("Something went wrong")
+		// throw new Error("Something went wrong")
 		return summaryCardData;
 	} catch {
 		throw new Error("Something went wrong");
