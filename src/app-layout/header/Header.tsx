@@ -14,6 +14,7 @@ import { useTheme } from "../../hooks/useTheme";
 import Box from "../../styled/styled";
 import { stringAvatar } from "../../utils/avatar-short-name";
 import ListItems from "./ListItems";
+import Notifications from "./Notifications";
 
 interface HeaderProps {
 	sidebarOpen: boolean;
@@ -107,12 +108,7 @@ export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 							position: "relative", // Absolute dropdown relies on this parent context
 						}}
 					>
-						<TooltipWithBadge
-							title="Notifications"
-							icon={NotificationsIcon}
-							color="error"
-							count={3}
-						/>
+						<Notifications />
 
 						{/* Profile Pill */}
 

@@ -7,8 +7,6 @@ import {
 	DialogActions,
 	DialogContent,
 	DialogContentText,
-	// Modal,
-	// Slide,
 	Tooltip,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";

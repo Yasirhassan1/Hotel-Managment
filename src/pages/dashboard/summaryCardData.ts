@@ -92,3 +92,5 @@ export const summaryCardData = [
 		},
 	},
 ];
+
+export const summaryCardLength = summaryCardData.length;

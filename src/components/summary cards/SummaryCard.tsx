@@ -42,7 +42,7 @@ export default function SummaryCard({
 				sx={{
 					display: "flex",
 					flexDirection: "column",
-					gap: "4px",
+					gap: "1px",
 				}}
 			>
 				<Typography

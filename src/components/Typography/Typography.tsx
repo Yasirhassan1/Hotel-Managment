@@ -68,8 +68,8 @@ const TypographyType = {
 
 const Typography = ({ variant, children, ...props }: TypographyProps) => {
 	// console.log("typo render");
-	const Typography = TypographyType[variant as TypoType];
+	const Typo = TypographyType[variant as TypoType];
 
-	return <Typography {...props}>{children}</Typography>;
+	return <Typo {...props}>{children}</Typo>;
 };
 export default memo(Typography);

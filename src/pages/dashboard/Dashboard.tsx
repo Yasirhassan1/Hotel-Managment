@@ -1,15 +1,16 @@
 import { memo } from "react";
-import BarChart from "../../components/Charts/BarChar";
-import LineChart from "../../components/Charts/LineChart";
+import BarChart from "../../components/charts/BarChar";
+import LineChart from "../../components/charts/LineChart";
 import SummaryCard from "../../components/summary cards/SummaryCard";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
+import DashboardStats from "./DashboardStats";
 import QuickAction from "./QuickAction";
+import useDashboardStatsQuery from "./queries/useDashboardStatsQuery";
 import RecientActivity from "./RecientActivity";
 import { summaryCardData } from "./summaryCardData";
 
 const Dashboard = () => {
-	console.log("Dashboard");
 	return (
 		<Box
 			sx={{
@@ -20,24 +21,8 @@ const Dashboard = () => {
 				flexDirection: "column",
 			}}
 		>
-			<Box
-				sx={{
-					display: "flex",
-					gap: 2,
-					width: "100%",
-					flexWrap: "wrap",
-				}}
-			>
-				{summaryCardData.map((cur) => (
-					<SummaryCard
-						key={cur.id}
-						title={cur.title}
-						count={cur.count}
-						tag={cur.tag}
-						icon={cur.Icon}
-					></SummaryCard>
-				))}
-			</Box>
+			<DashboardStats />
+
 			<Box
 				sx={{
 					borderRadius: "20px",

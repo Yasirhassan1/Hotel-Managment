@@ -9,6 +9,7 @@ interface ToolTipProps {
 	title: string;
 	count?: number;
 	color: string;
+	onClick?: () => void;
 }
 
 const CartBadge = styled(Badge)`
@@ -23,11 +24,12 @@ export default function TooltipWithBadge({
 	title,
 	color,
 	count = 0,
+	onClick,
 	...props
 }: ToolTipProps) {
 	const Icon = icon;
 	return (
-		<MUITooltip title={title} {...props}>
+		<MUITooltip title={title} onClick={onClick} {...props}>
 			<IconButton>
 				<Icon />
 				<CartBadge
