@@ -10,9 +10,9 @@ import {
 } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { memo, useMemo, useState } from "react";
+import { NavLink } from "react-router";
 import Button from "../../components/Buttons/Button";
 import TooltipWithBadge from "../../components/tooltip/ToolTipBadge";
-import { NavLink } from "react-router";
 
 interface NotificationProps {
 	id: string;
@@ -144,14 +144,12 @@ const Notifications = ({ notificationsList }: NotificationListProps) => {
 					</nav>
 					<Divider />
 					<NavLink
-					  style={{
-						textDecoration: "none",
-						alignSelf:"center",
-						padding: "10px",
-						color: "#006ad8"
-					  }}
-						
-						
+						style={{
+							textDecoration: "none",
+							alignSelf: "center",
+							padding: "10px",
+							color: "#006ad8",
+						}}
 						to="/notifications"
 					>
 						View all notifications

@@ -125,10 +125,9 @@ export interface RestaurantTableType {
 	status: RestaurantStatusType;
 }
 
-
-export interface NotificationType{
-	id: string,
-	name: string,
-	time: string,
-	active: boolean
+export interface NotificationType {
+	id: string;
+	name: string;
+	time: string;
+	active: boolean;
 }
