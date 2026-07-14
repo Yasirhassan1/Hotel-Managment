@@ -56,6 +56,7 @@ export const routeTitles: Record<string, string> = {
 	"/hotels": "Hotel Management",
 	"/restaurants": "Restaurants & Menus",
 	"/settings": "Settings",
+	"/notifications": "Notifications",
 };
 
 export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {

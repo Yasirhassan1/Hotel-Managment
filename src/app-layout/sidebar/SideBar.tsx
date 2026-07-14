@@ -45,6 +45,7 @@ export function SideBar({ sidebarOpen }: { sidebarOpen: boolean }) {
 					height: "100%",
 					padding: "11px",
 					flexDirection: "column",
+
 					// bgcolor: "darkblue",
 					gap: "8px",
 				}}
@@ -82,7 +83,7 @@ export function SideBar({ sidebarOpen }: { sidebarOpen: boolean }) {
 						gap: "8px",
 						// bgcolor: "green",
 						height: "400px",
-						overflow: "auto",
+						overflow: "hidden",
 						flex: "3",
 						paddingTop: "1rem",
 						paddingBottom: "1rem",

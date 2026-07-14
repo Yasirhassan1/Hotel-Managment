@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import { memo, useMemo, useState } from "react";
 import Button from "../../components/Buttons/Button";
 import TooltipWithBadge from "../../components/tooltip/ToolTipBadge";
+import { NavLink } from "react-router";
 
 interface NotificationProps {
 	id: string;
@@ -142,13 +143,19 @@ const Notifications = ({ notificationsList }: NotificationListProps) => {
 						</List>
 					</nav>
 					<Divider />
-					<Button
-						variant="text"
-						sx={{ textTransform: "none", padding: 2 }}
-						disableRipple
+					<NavLink
+					  style={{
+						textDecoration: "none",
+						alignSelf:"center",
+						padding: "10px",
+						color: "#006ad8"
+					  }}
+						
+						
+						to="/notifications"
 					>
 						View all notifications
-					</Button>
+					</NavLink>
 				</Dialog>
 			)}
 		</>
