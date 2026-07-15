@@ -9,7 +9,7 @@ export const notificationsData = [
 		id: "not2",
 		name: "New Booking #1002",
 		time: "4 min ago",
-		active: false,
+		active: true,
 	},
 	{
 		id: "not3",
@@ -21,7 +21,7 @@ export const notificationsData = [
 		id: "not4",
 		name: "New Booking #1004",
 		time: "8 min ago",
-		active: false,
+		active: true,
 	},
 	{
 		id: "not5",

@@ -9,40 +9,10 @@ import { useTheme } from "../../hooks/useTheme";
 import Box from "../../styled/styled";
 import Notifications from "./Notifications";
 import ProfilePill from "./ProfilePill";
+import { notificationsData } from "../../pages/notifications/data";
+import { useMemo } from "react";
 
-const notifications = [
-	{
-		id: "not1",
-		name: "New Booking #0992",
-		time: "2min ago",
-		active: true,
-	},
 
-	{
-		id: "not4",
-		name: "New Booking #992",
-		time: "2min ago",
-		active: false,
-	},
-	{
-		id: "not5",
-		name: "New Booking #0440",
-		time: "16 min ago",
-		active: true,
-	},
-	{
-		id: "not4e",
-		name: "New Booking #3df",
-		time: "16 min ago",
-		active: false,
-	},
-	{
-		id: "not6",
-		name: "New Booking #9393",
-		time: "16 min ago",
-		active: true,
-	},
-];
 
 interface HeaderProps {
 	sidebarOpen: boolean;
@@ -62,8 +32,22 @@ export const routeTitles: Record<string, string> = {
 export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 	const { pathname } = useLocation();
 	const { theme, toggleTheme } = useTheme();
+
+	const someNotification = notificationsData.slice(0, 4);
+
 	const title = routeTitles[pathname] ?? "App";
 	console.log("header");
+		const getActiveCount = useMemo(()=>{
+	return notificationsData.filter((cur)=> cur.active === true).length
+
+   }, [])
+
+	const sortedNotifications = useMemo(() => {
+		return someNotification.toSorted(
+			(cur, next) => Number(next.active) - Number(cur.active),
+		);
+	}, [someNotification]);
+
 	return (
 		<Box
 			variant="shadow"
@@ -136,7 +120,7 @@ export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 							position: "relative", // Absolute dropdown relies on this parent context
 						}}
 					>
-						<Notifications notificationsList={notifications} />
+						<Notifications notificationsList={sortedNotifications} totalNotification={getActiveCount} />
 
 						{/* Profile Pill */}
 

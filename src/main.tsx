@@ -14,7 +14,6 @@ if (!rootElement) {
 }
 
 const root = createRoot(rootElement);
-
 const queryClient = new QueryClient();
 
 root.render(

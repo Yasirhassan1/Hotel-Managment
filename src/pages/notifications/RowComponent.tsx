@@ -18,9 +18,10 @@ export default function RowComponent({
 				variant="shadow"
 				style={style}
 				sx={{
-					borderBottom: "1px solid gray",
+					// borderBottom: "1px solid gray",
 					padding: 1,
 					paddingBottom: 6,
+					borderRadius: 2
 				}}
 			>
 				<Typography
@@ -30,7 +31,7 @@ export default function RowComponent({
 				>
 					{notification.name}
 				</Typography>
-				<Typography>{notification.time}</Typography>
+				<Typography color="textSecondary">{notification.time}</Typography>
 			</Box>
 		</Box>
 	);

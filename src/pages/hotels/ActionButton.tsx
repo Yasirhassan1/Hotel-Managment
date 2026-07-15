@@ -166,7 +166,12 @@ const ActionButton = ({
 							</DialogContentText>
 						</DialogContent>
 						<DialogActions>
-							<Button variant="outlined" type="submit" startIcon={<EditIcon />}>
+							<Button variant="outlined" type="submit"  onClick={()=>{
+								setDialogMode({
+									rowId: rowId,
+									mode: "editForm"
+								})
+							}} startIcon={<EditIcon />}>
 								Edit
 							</Button>
 							<Button

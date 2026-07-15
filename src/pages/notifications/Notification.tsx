@@ -16,7 +16,7 @@ const Notification = () => {
 			}}
 			defaultHeight={20}
 			rowCount={notificationsData.length}
-			rowHeight={50}
+			rowHeight={67}
 			rowComponent={RowComponent}
 			rowProps={{ notifications: notificationsData }}
 		></List>

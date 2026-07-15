@@ -8,6 +8,8 @@ import Divider from "@mui/material/Divider";
 import Button from "../../components/Buttons/Button";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
+import { NavLink } from "react-router";
+
 
 const quickActions = [
 	{
@@ -15,12 +17,14 @@ const quickActions = [
 		icon: Group,
 		title: "Add Staff",
 		color: "primary",
+		to: "/staff-management"
 	},
 	{
 		id: "btn2",
 		icon: DirectionsCarIcon,
 		title: "Add Vehicle",
 		color: "secondary",
+		to: "/vehicles"
 	},
 
 	{
@@ -28,24 +32,29 @@ const quickActions = [
 		icon: ApartmentIcon,
 		title: "Add Hotel",
 		color: "success",
+		to: "/hotels"
 	},
 	{
 		id: "btn4",
 		icon: LocalDiningIcon,
 		title: "Add Restaurant",
 		color: "warning",
+		to: "/restaurants"
+		
 	},
 	{
 		id: "btn5",
 		icon: BookmarkAddedIcon,
 		title: "New Booking",
 		color: "primary",
+		to: "/"
 	},
 	{
 		id: "btn6",
 		icon: AssessmentIcon,
 		title: "Generate Report",
 		color: "error",
+		to: "/"
 	},
 ];
 export default function QuickAction() {
@@ -73,8 +82,12 @@ export default function QuickAction() {
 				}}
 			>
 				{quickActions.map((cur) => (
+					<NavLink key={cur.id} to={cur.to} style={{
+						textDecoration: "none"
+					}}>
 					<Button
-						key={cur.id}
+					
+						href={cur.to}
 						variant="outlined"
 						color={
 							cur.color as
@@ -94,12 +107,13 @@ export default function QuickAction() {
 					>
 						{cur.title}
 					</Button>
+					</NavLink>
 				))}
 			</Box>
 			<Divider />
 			<Box
 				sx={{
-					bgcolor: "#F4F6F9",
+					bgcolor: "main.paper",
 					display: "flex",
 					alignSelf: "center",
 					textAlign: "center",

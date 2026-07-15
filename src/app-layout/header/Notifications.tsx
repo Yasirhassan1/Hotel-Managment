@@ -9,7 +9,7 @@ import {
 	ListItemButton,
 } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { memo, useMemo, useState } from "react";
+import { memo, useState } from "react";
 import { NavLink } from "react-router";
 import Button from "../../components/Buttons/Button";
 import TooltipWithBadge from "../../components/tooltip/ToolTipBadge";
@@ -22,17 +22,15 @@ interface NotificationProps {
 }
 interface NotificationListProps {
 	notificationsList: NotificationProps[];
+	totalNotification: number
 }
 
-const Notifications = ({ notificationsList }: NotificationListProps) => {
+const Notifications = ({ notificationsList, totalNotification }: NotificationListProps) => {
 	const [isOpen, setIsOpen] = useState(false);
-	const [notifications, setNotifications] = useState(notificationsList);
 
-	const sortedNotifications = useMemo(() => {
-		return notifications.toSorted(
-			(cur, next) => Number(next.active) - Number(cur.active),
-		);
-	}, [notifications]);
+ 
+	const [notifications, setNotifications] = useState(notificationsList);
+	const [activeNotification, setActiveNotification] = useState(totalNotification)
 
 	function readAllNotification() {
 		const temp = notifications.map((cur) => ({
@@ -40,6 +38,7 @@ const Notifications = ({ notificationsList }: NotificationListProps) => {
 			active: false,
 		}));
 		setNotifications(temp);
+		setActiveNotification(0)
 	}
 
 	return (
@@ -48,7 +47,7 @@ const Notifications = ({ notificationsList }: NotificationListProps) => {
 				title="Notifications"
 				icon={NotificationsIcon}
 				color="error"
-				count={3}
+				count={activeNotification}
 				onClick={() => setIsOpen((prev) => !prev)}
 			></TooltipWithBadge>
 			{isOpen && (
@@ -101,7 +100,7 @@ const Notifications = ({ notificationsList }: NotificationListProps) => {
 								</ListItem>
 							)}
 
-							{sortedNotifications.map((cur) => (
+							{notifications.map((cur) => (
 								<ListItem disablePadding key={cur.id}>
 									<ListItemButton
 										sx={{
@@ -143,7 +142,7 @@ const Notifications = ({ notificationsList }: NotificationListProps) => {
 						</List>
 					</nav>
 					<Divider />
-					<NavLink
+					<NavLink onClick={()=>setIsOpen(false)}
 						style={{
 							textDecoration: "none",
 							alignSelf: "center",
