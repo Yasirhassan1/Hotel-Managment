@@ -22,15 +22,18 @@ interface NotificationProps {
 }
 interface NotificationListProps {
 	notificationsList: NotificationProps[];
-	totalNotification: number
+	totalNotification: number;
 }
 
-const Notifications = ({ notificationsList, totalNotification }: NotificationListProps) => {
+const Notifications = ({
+	notificationsList,
+	totalNotification,
+}: NotificationListProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 
- 
 	const [notifications, setNotifications] = useState(notificationsList);
-	const [activeNotification, setActiveNotification] = useState(totalNotification)
+	const [activeNotification, setActiveNotification] =
+		useState(totalNotification);
 
 	function readAllNotification() {
 		const temp = notifications.map((cur) => ({
@@ -38,7 +41,7 @@ const Notifications = ({ notificationsList, totalNotification }: NotificationLis
 			active: false,
 		}));
 		setNotifications(temp);
-		setActiveNotification(0)
+		setActiveNotification(0);
 	}
 
 	return (
@@ -142,7 +145,8 @@ const Notifications = ({ notificationsList, totalNotification }: NotificationLis
 						</List>
 					</nav>
 					<Divider />
-					<NavLink onClick={()=>setIsOpen(false)}
+					<NavLink
+						onClick={() => setIsOpen(false)}
 						style={{
 							textDecoration: "none",
 							alignSelf: "center",

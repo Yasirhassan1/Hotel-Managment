@@ -21,7 +21,7 @@ export default function RowComponent({
 					// borderBottom: "1px solid gray",
 					padding: 1,
 					paddingBottom: 6,
-					borderRadius: 2
+					borderRadius: 2,
 				}}
 			>
 				<Typography

@@ -5,11 +5,10 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import Group from "@mui/icons-material/Group";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import Divider from "@mui/material/Divider";
+import { NavLink } from "react-router";
 import Button from "../../components/Buttons/Button";
 import Typography from "../../components/Typography/Typography";
 import Box from "../../styled/styled";
-import { NavLink } from "react-router";
-
 
 const quickActions = [
 	{
@@ -17,14 +16,14 @@ const quickActions = [
 		icon: Group,
 		title: "Add Staff",
 		color: "primary",
-		to: "/staff-management"
+		to: "/staff-management",
 	},
 	{
 		id: "btn2",
 		icon: DirectionsCarIcon,
 		title: "Add Vehicle",
 		color: "secondary",
-		to: "/vehicles"
+		to: "/vehicles",
 	},
 
 	{
@@ -32,29 +31,28 @@ const quickActions = [
 		icon: ApartmentIcon,
 		title: "Add Hotel",
 		color: "success",
-		to: "/hotels"
+		to: "/hotels",
 	},
 	{
 		id: "btn4",
 		icon: LocalDiningIcon,
 		title: "Add Restaurant",
 		color: "warning",
-		to: "/restaurants"
-		
+		to: "/restaurants",
 	},
 	{
 		id: "btn5",
 		icon: BookmarkAddedIcon,
 		title: "New Booking",
 		color: "primary",
-		to: "/"
+		to: "/",
 	},
 	{
 		id: "btn6",
 		icon: AssessmentIcon,
 		title: "Generate Report",
 		color: "error",
-		to: "/"
+		to: "/",
 	},
 ];
 export default function QuickAction() {
@@ -82,31 +80,34 @@ export default function QuickAction() {
 				}}
 			>
 				{quickActions.map((cur) => (
-					<NavLink key={cur.id} to={cur.to} style={{
-						textDecoration: "none"
-					}}>
-					<Button
-					
-						href={cur.to}
-						variant="outlined"
-						color={
-							cur.color as
-								| "primary"
-								| "secondary"
-								| "success"
-								| "error"
-								| "info"
-								| "warning"
-						}
-						sx={{
-							display: "flex",
-							justifyContent: "start",
-							textTransform: "none",
+					<NavLink
+						key={cur.id}
+						to={cur.to}
+						style={{
+							textDecoration: "none",
 						}}
-						startIcon={<cur.icon />}
 					>
-						{cur.title}
-					</Button>
+						<Button
+							href={cur.to}
+							variant="outlined"
+							color={
+								cur.color as
+									| "primary"
+									| "secondary"
+									| "success"
+									| "error"
+									| "info"
+									| "warning"
+							}
+							sx={{
+								display: "flex",
+								justifyContent: "start",
+								textTransform: "none",
+							}}
+							startIcon={<cur.icon />}
+						>
+							{cur.title}
+						</Button>
 					</NavLink>
 				))}
 			</Box>

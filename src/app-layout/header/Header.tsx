@@ -3,16 +3,14 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import { useMemo } from "react";
 import { useLocation } from "react-router";
 import Typography from "../../components/Typography/Typography";
 import { useTheme } from "../../hooks/useTheme";
+import { notificationsData } from "../../pages/notifications/data";
 import Box from "../../styled/styled";
 import Notifications from "./Notifications";
 import ProfilePill from "./ProfilePill";
-import { notificationsData } from "../../pages/notifications/data";
-import { useMemo } from "react";
-
-
 
 interface HeaderProps {
 	sidebarOpen: boolean;
@@ -37,10 +35,9 @@ export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 
 	const title = routeTitles[pathname] ?? "App";
 	console.log("header");
-		const getActiveCount = useMemo(()=>{
-	return notificationsData.filter((cur)=> cur.active === true).length
-
-   }, [])
+	const getActiveCount = useMemo(() => {
+		return notificationsData.filter((cur) => cur.active === true).length;
+	}, []);
 
 	const sortedNotifications = useMemo(() => {
 		return someNotification.toSorted(
@@ -120,7 +117,10 @@ export function Header({ sidebarOpen, setSidebarOpen }: HeaderProps) {
 							position: "relative", // Absolute dropdown relies on this parent context
 						}}
 					>
-						<Notifications notificationsList={sortedNotifications} totalNotification={getActiveCount} />
+						<Notifications
+							notificationsList={sortedNotifications}
+							totalNotification={getActiveCount}
+						/>
 
 						{/* Profile Pill */}
 
