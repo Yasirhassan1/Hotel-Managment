@@ -42,7 +42,7 @@ const Row = ({ virtualItem, notificationData }: RowProps) => {
 				{notificationData.name}
 			</Typography>
 			<Typography color="textSecondary">{notificationData.time}</Typography>
-		</Box> 
+		</Box>
 	);
 };
 

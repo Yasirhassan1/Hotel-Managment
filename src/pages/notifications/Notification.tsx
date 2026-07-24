@@ -72,7 +72,6 @@
 
 // export default memo(Notification);
 
-
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import { Loader } from "../../components/Loader.tsx";
@@ -100,7 +99,10 @@ const Notification = () => {
 		setLoading(true);
 		setTimeout(() => {
 			setItems((prev) => {
-				const nextChunk = notificationsData.slice(prev.length, prev.length + CHUNK_SIZE);
+				const nextChunk = notificationsData.slice(
+					prev.length,
+					prev.length + CHUNK_SIZE,
+				);
 				if (prev.length + nextChunk.length >= notificationsData.length) {
 					setHasMore(false);
 				}
@@ -125,9 +127,8 @@ const Notification = () => {
 	const virtualItems = rowVirtualizer.getVirtualItems();
 	const lastItem = virtualItems[virtualItems.length - 1];
 
-
 	useEffect(() => {
-		if (!lastItem) return;	
+		if (!lastItem) return;
 		const isLoaderRow = lastItem.index >= items.length;
 		if (isLoaderRow && hasMore && !loading) {
 			fetchChunk();
