@@ -15,7 +15,6 @@ interface RowProps {
 }
 const Row = ({ virtualItem, notificationData }: RowProps) => {
 	const theme = useTheme();
-	console.log("virtualization");
 	return (
 		<Box
 			variant="shadow"
@@ -43,7 +42,7 @@ const Row = ({ virtualItem, notificationData }: RowProps) => {
 				{notificationData.name}
 			</Typography>
 			<Typography color="textSecondary">{notificationData.time}</Typography>
-		</Box>
+		</Box> 
 	);
 };
 
