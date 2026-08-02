@@ -227,7 +227,7 @@ Feel free to fork the repository and submit a pull request.
 
 **Yasir Hassan**
 
-LinkedIn: https://linkedin.com/in/your-profile
+LinkedIn: [https://linkedin.com/in/your-profile](https://www.linkedin.com/in/yasir-hassan-9a14432b1/)
 
 GitHub: https://github.com/Yasirhassan1
 
