@@ -1,73 +1,238 @@
-# React + TypeScript + Vite
+# Tour Admin Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and scalable **Tour Admin Management System** built with **React**, **TypeScript**, and **Material UI**. The application provides a centralized dashboard for managing the core resources of a tour management business, including staff, vehicles, hotels, restaurants, and menus.
 
-Currently, two official plugins are available:
+The project emphasizes clean architecture, reusable components, responsive design, and high-performance rendering to create a seamless administrative experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+### Dashboard
+- Modern admin dashboard
+- Interactive charts
+- Responsive layout
+- Clean Material Design interface
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Staff Management
+- Add new staff members
+- Update staff information
+- Delete staff records
+- Search and filter staff
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Vehicle Management
+- Vehicle registration
+- Update vehicle details
+- Delete vehicles
+- Search and filtering
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Hotel Management
+- Create hotel records
+- Edit hotel information
+- Delete hotels
+- Filter hotel listings
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Restaurant Management
+- Add restaurants
+- Edit restaurant information
+- Delete restaurants
+- Search functionality
+
+### Menu Management
+- Create menus
+- Update menu items
+- Delete menus
+- Organized menu management
+
+### User Experience
+- Responsive UI
+- Fast navigation
+- Reusable components
+- Optimized rendering
+- Form validation
+- Modern Material UI design
+
+---
+
+# 🛠 Tech Stack
+
+### Frontend
+
+- React 19
+- TypeScript
+- Material UI (MUI)
+- React Router
+- React Hook Form
+
+### State Management
+
+- TanStack React Query
+
+### Performance
+
+- TanStack React Virtual
+
+### Data Visualization
+
+- MUI Data Grid
+- MUI X Charts
+
+### Development
+
+- Vite
+- Biome
+- Commitlint
+- Lefthook
+
+---
+
+##  Project Structure
+
+```
+src/
+│
+├── assets/
+├── components/
+├── pages/
+├── layouts/
+├── hooks/
+├── api/
+├── routes/
+├── types/
+├── utils/
+├── constants/
+├── theme/
+└── App.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js (Latest LTS recommended)
+- npm or yarn
+
+---
+
+### Installation
+
+Clone the repository.
+
+```bash
+git clone https://github.com/Yasirhassan1/Hotel-Managment.git
 ```
+
+Move into the project directory.
+
+```bash
+cd Hotel-Managment.git
+```
+
+Install dependencies.
+
+```bash
+npm install
+```
+
+Start the development server.
+
+```bash
+npm run dev
+```
+
+Build the project.
+
+```bash
+npm run build
+```
+
+Preview the production build.
+
+```bash
+npm run preview
+```
+
+---
+
+## 📚 Main Libraries Used
+
+| Library | Purpose |
+|----------|----------|
+| React | UI Development |
+| TypeScript | Type Safety |
+| Material UI | Component Library |
+| React Router | Routing |
+| React Hook Form | Form Handling |
+| TanStack React Query | Server State Management |
+| TanStack React Virtual | List Virtualization |
+| MUI Data Grid | Advanced Tables |
+| MUI Charts | Data Visualization |
+| Vite | Development & Build Tool |
+
+---
+
+## 💡 Architecture Highlights
+
+- Component-based architecture
+- Reusable UI components
+- Scalable folder structure
+- Type-safe development with TypeScript
+- Efficient server state management
+- Optimized rendering for large datasets
+- Responsive design principles
+- Maintainable and modular codebase
+
+---
+
+## 🎯 What I Learned
+
+This project helped strengthen my understanding of:
+
+- Building scalable React applications
+- Advanced TypeScript practices
+- Designing reusable UI components
+- Managing server state efficiently
+- Creating responsive admin dashboards
+- Form validation and handling
+- Performance optimization using virtualization
+- Writing clean and maintainable frontend code
+
+---
+
+## 📈 Future Improvements
+
+- Authentication & Authorization
+- Role-based Access Control
+- Internationalization (i18n)
+- Notifications
+- Dashboard Analytics
+- Export to Excel/PDF
+- Unit & Integration Testing
+- Backend API Integration
+
+---
+
+##  Contributing
+
+Contributions, suggestions, and feedback are always welcome.
+
+Feel free to fork the repository and submit a pull request.
+
+---
+
+## 📬 Contact
+
+**Yasir Hassan**
+
+LinkedIn: [https://linkedin.com/in/your-profile](https://www.linkedin.com/in/yasir-hassan-9a14432b1/)
+
+GitHub: https://github.com/Yasirhassan1
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.<img width="959" height="439" alt="1" src="https://github.com/user-attachments/assets/18d22c6e-ebfe-45a7-885a-b8a72744f316" />
