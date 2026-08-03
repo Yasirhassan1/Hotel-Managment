@@ -117,9 +117,14 @@ export default function ViewForm({ data }: Readonly<ViewFormProps>) {
 						>
 							<cur.icon color="primary" />
 							<Typography variant="body2">{cur.title}</Typography>
-							<Typography variant="body2" sx={{
-								fontWeight: 700
-							}}>{cur.subTitle}</Typography>
+							<Typography
+								variant="body2"
+								sx={{
+									fontWeight: 700,
+								}}
+							>
+								{cur.subTitle}
+							</Typography>
 						</Box>
 					</Box>
 				))}
