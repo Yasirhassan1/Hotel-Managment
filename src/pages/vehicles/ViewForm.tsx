@@ -88,8 +88,9 @@ export default function ViewForm({ data }: Readonly<ViewFormProps>) {
 			<Box
 				sx={{
 					display: "flex",
-					flexDirection: "column",
+					flexDirection: "row",
 					gap: "10px",
+					flexWrap: "wrap",
 					width: "100%",
 				}}
 			>
@@ -101,7 +102,8 @@ export default function ViewForm({ data }: Readonly<ViewFormProps>) {
 							gap: "10px",
 							flexWrap: "wrap",
 							flex: 1,
-							backgroundColor: "#E7E7E7",
+							minWidth: "200px",
+							backgroundColor: "#F8F9FA",
 							padding: 2,
 							borderRadius: "10px",
 						}}
@@ -115,7 +117,9 @@ export default function ViewForm({ data }: Readonly<ViewFormProps>) {
 						>
 							<cur.icon color="primary" />
 							<Typography variant="body2">{cur.title}</Typography>
-							<Typography variant="body2">{cur.subTitle}</Typography>
+							<Typography variant="body2" sx={{
+								fontWeight: 700
+							}}>{cur.subTitle}</Typography>
 						</Box>
 					</Box>
 				))}

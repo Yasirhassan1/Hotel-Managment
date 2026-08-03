@@ -104,7 +104,7 @@ export default function ViewForm({ data }: Readonly<ViewFormProps>) {
 							gap: "10px",
 							flexWrap: "wrap",
 							flex: 1,
-							backgroundColor: "#E7E7E7",
+							backgroundColor: "#F8F9FA",
 							padding: 2,
 							borderRadius: "10px",
 						}}

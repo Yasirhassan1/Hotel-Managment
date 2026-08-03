@@ -57,6 +57,7 @@ export default function ViewForm({ data }: ViewFormProps) {
 				gap: "1rem",
 				alignItems: "center",
 				height: "260px",
+				width: "100%",
 
 				overflowY: "auto",
 			}}
@@ -70,6 +71,7 @@ export default function ViewForm({ data }: ViewFormProps) {
 					flexDirection: "column",
 					gap: "0.6rem",
 					marginTop: "0.4rem",
+					
 					width: "100%",
 				}}
 			>
@@ -83,7 +85,7 @@ export default function ViewForm({ data }: ViewFormProps) {
 							gap: "0.8rem",
 							width: "100%",
 							borderRadius: 2,
-							bgcolor: "#e9f0ffa9",
+							bgcolor: "#F8F9FA"
 						}}
 					>
 						<cur.icon
@@ -99,7 +101,9 @@ export default function ViewForm({ data }: ViewFormProps) {
 							}}
 						>
 							<Typography variant="caption">{cur.title}</Typography>
-							<Typography variant="body2">{cur.subTitle}</Typography>
+							<Typography variant="body2" sx={{
+								fontWeight: 500
+							}}>{cur.subTitle}</Typography>
 						</Box>
 					</Box>
 				))}

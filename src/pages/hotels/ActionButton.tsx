@@ -110,6 +110,8 @@ const ActionButton = ({
 					open={dialogMode.mode === "viewForm"}
 					slots={{}}
 					keepMounted
+					maxWidth={"sm"}
+					fullWidth={true}
 					onClose={() =>
 						setDialogMode({
 							rowId: null,
